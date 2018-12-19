@@ -7,11 +7,19 @@ import {Component} from "@angular/core";
 export class menuLateral{
 
     asignaturas=[{
-        nombre:"M03"
+        nombre:"GENERAL"
     },{
         nombre:"M02"
     },{
         nombre:"M04"
+    },{
+        nombre:"M05"
+    },{
+        nombre:"M06"
+    },{
+        nombre:"M07"
+    },{
+        nombre:"M08"
     }]
 
 }
