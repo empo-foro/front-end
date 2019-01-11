@@ -5,12 +5,13 @@
 
 <div class="div-todo">
 
-  <div class=fondo-img><a href="https://www.stucom.com/ca/"><img src="../../assets/img-menu/logo-stucom.png" class="logo-stucom"></a></div>
+  <div class=fondo-img><a href="https://www.stucom.com/ca/"><img alt="imagen perro" src="../../assets/img-menu/logo-stucom.png" class="logo-stucom"></a></div>
     <div class="login">
-      <form>
-        <input type="text" name="accesoDni" id="inputAccesoDni" placeholder="DNI"><br/>
-        <input type="password" name="acessoPassword" id="inputAcessoPassword" placeholder="Contraseña"><br/>
-        <input type="submit" name="login" id="accesoLogin" value="Acceder">
+      <form method="POST">
+        <input type="text" name="accesoDni" class="form-control" placeholder="DNI" required><br>
+        <input type="password" name="acessoPassword" class="form-control" placeholder="Contraseña" required><br>
+        <input type="submit" name="login" class="form-controlAcceder" value="Acceder">
+          <p href="https://www.stucom.com/ca/">¿Has olvidado tu contraseña?</p>
       </form>
     </div>
 
