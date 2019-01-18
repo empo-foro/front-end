@@ -18,7 +18,7 @@
     <div class=menuLateral>
         <div class=cajaAsignaturas>
             <div class="asignaturas" *ngFor="let asignatura of asignaturas">
-              <a href="{{asignatura.nombre}}.html">{{asignatura.nombre}}</a>
+              <a [routerLink]="['main']">{{asignatura.nombre}}</a>
             </div>
         </div>
     </div>
