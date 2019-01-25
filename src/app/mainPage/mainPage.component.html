@@ -1,21 +1,55 @@
 <main>
-<header></header>
-
+<head>
+  <script>
+      $('#recPass').on('shown.bs.modal', function () {
+      $('#myInput').trigger('focus')
+    })
+  </script>
+</head>
 <div class="div-central">
 
 <div class="div-todo">
 
-  <div class=fondo-img><a href="https://www.stucom.com/ca/"><img alt="imagen perro" src="../../assets/img-menu/logo-stucom.png" class="logo-stucom"></a></div>
+  <div class=fondo-img><img alt="imagen perro" src="../../assets/img-menu/logo-stucom.png" class="logo-stucom"></div>
     <div class="login">
       <form method="POST">
         <input type="text" name="accesoDni" class="form-control" placeholder="DNI" required><br>
         <input type="password" name="acessoPassword" class="form-control" placeholder="Contraseña" required><br>
         <input type="submit" name="login" class="form-controlAcceder" value="Acceder">
-          <p href="https://www.stucom.com/ca/">¿Has olvidado tu contraseña?</p>
+        <a href="#" data-toggle="modal" data-target="#exampleModal">¿Has olvidado tu contraseña?</a>
       </form>
     </div>
 
 </div>
 
 </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Recuperar contraseña</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+              <div class=fondo-img><img alt="logo-stucom" src="../../assets/img-menu/logo-stucom.png" class="logo-stucom-modal"></div>
+
+              <div class="rec-pass">
+                <form method="POST" name="rec-pass">
+                  <input type="text" name="accesoDni" placeholder="DNI" required><br>
+                  <input type="submit" class="btn btn-secondary" name="login"  value="Acceder">
+                </form>
+              </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </main>

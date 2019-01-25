@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { mainPage } from './mainPage/mainPage.component';
 import { menuLateral } from './menuLateral/menuLateral.component';
+import {passRec} from './passRec/passRec.component';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app.routing';
-import {passRec} from './passRec/passRec.component';
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import {passRec} from './passRec/passRec.component';
     AppComponent,
     menuLateral,
     mainPage,
-      passRec
+    passRec
   ],
   imports: [
     BrowserModule,

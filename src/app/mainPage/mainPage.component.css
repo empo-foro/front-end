@@ -3,57 +3,52 @@ main {
   height: 657px;
   background-color: #76cad4;
   background-image: -webkit-linear-gradient(150deg, #76cad4 50%, #FFFFFF 35%);
-  z-index: -1;
-}
-main .div-central {
-  width: 100%;
-  height: 100%;
-}
-main .div-central .div-todo {
-  width: 30%;
-  height: 375px;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  top: 170px;
-  position: relative;
-  align-items: center;
-  background-color: whitesmoke;
-  box-shadow: 2px 2px 5px grey;
-  text-align: center;
-}
-main .div-central .div-todo .logo-stucom {
-  width: 66%;
-  height: 50%;
-  top: -10px;
-  position: relative;
-}
-main .div-central .div-todo form {
-  position: relative;
-  top: -40px;
-}
-main .div-central .div-todo .form-control {
-  display: block;
-  height: 30px;
-  padding: 6px 12px;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-main .div-central .div-todo .form-controlAcceder {
-  display: block;
-  width: 100%;
-  height: 30px;
-  padding: 6px 12px;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  color: whitesmoke;
-  background-color: #0096B7;
-}
-main .div-central .div-todo .form-control:hover {
-  box-shadow: 1px 1px 2px grey;
-}
+  z-index: -1; }
+  main .div-central {
+    width: 100%;
+    height: 100%; }
+    main .div-central .div-todo {
+      width: 30%;
+      height: 375px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      top: 170px;
+      position: relative;
+      align-items: center;
+      background-color: whitesmoke;
+      box-shadow: 2px 2px 5px grey;
+      text-align: center; }
+      main .div-central .div-todo .logo-stucom {
+        width: 66%;
+        height: 50%;
+        top: -10px;
+        position: relative; }
+      main .div-central .div-todo form {
+        position: relative;
+        top: -40px; }
+      main .div-central .div-todo .form-control {
+        display: block;
+        height: 30px;
+        padding: 6px 12px;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
+      main .div-central .div-todo .form-controlAcceder {
+        display: block;
+        width: 100%;
+        height: 30px;
+        padding: 6px 12px;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        color: whitesmoke;
+        background-color: #0096B7; }
+      main .div-central .div-todo .form-control:hover {
+        box-shadow: 1px 1px 2px grey; }
+
+.logo-stucom-modal {
+  width: 40%; }
 
 /*# sourceMappingURL=mainPage.component.css.map */
