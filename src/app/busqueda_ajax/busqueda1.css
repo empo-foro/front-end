@@ -1,0 +1,12 @@
+#logo1 {
+    width: 40%;
+    position: relative;
+    right: 400px;
+}
+
+#buscador {
+    width: 30%;
+    position: relative;
+    left:970px;
+    top: -170px;
+}
