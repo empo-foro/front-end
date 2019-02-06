@@ -7,13 +7,15 @@ import { menuLateral } from './menuLateral/menuLateral.component';
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app.routing';
+import { CursosComponentComponent } from './cursos-component/cursos-component.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     menuLateral,
-    mainPage
+    mainPage,
+    CursosComponentComponent
   ],
   imports: [
     BrowserModule,
