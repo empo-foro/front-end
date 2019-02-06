@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,cAAc;EACZ,WAAW,EAAE,oBAAoB",
+"sources": ["cursos-component.scss"],
+"names": [],
+"file": "cursos-component.css"
+}
