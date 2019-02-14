@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,cAAc;EACZ,WAAW,EAAE,oBAAoB",
+"mappings": "AAAA,cAAc;EACZ,WAAW,EAAE,oBAAoB;EACjC,SAAS,EAAE,IAAI;;AAEjB,IAAI;EACF,gBAAgB,EAAE,OAAO;;AAE3B,UAAW;EACT,WAAW,EAAE,oBAAoB;EACjC,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,KAAK;EACb,UAAU,EAAE,qBAAqB;EACjC,gBAAgB,EAAE,OAAO;EACzB,wBAAa;IACX,SAAS,EAAE,IAAI",
 "sources": ["cursos-component.scss"],
 "names": [],
 "file": "cursos-component.css"

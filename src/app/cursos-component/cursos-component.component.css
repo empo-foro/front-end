@@ -1,4 +1,17 @@
 .cursos-header {
-  font-family: 'Barlow', sans-serif; }
+  font-family: 'Barlow', sans-serif;
+  font-size: 30px; }
+
+body {
+  background-color: #f5f5f5; }
+
+.div-curso {
+  font-family: 'Barlow', sans-serif;
+  width: 60%;
+  height: 100px;
+  box-shadow: 0 3px 6px 0 #00000029;
+  background-color: #ffffff; }
+  .div-curso .nombre-curso {
+    font-size: 20px; }
 
 /*# sourceMappingURL=cursos-component.component.css.map */
