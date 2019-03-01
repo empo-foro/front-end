@@ -16,9 +16,9 @@ header {
     width: 40%;
     height: 20px;
     display: inline-block;
-    position: absolute;
-    top: 25px;
-    left: 200px; }
+    position: relative;
+    top: -4px;
+    left: 85px; }
   header .input-buscador {
     width: 70%;
     height: 20px; }
