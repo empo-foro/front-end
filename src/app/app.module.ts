@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { mainPage } from './mainPage/mainPage.component';
 import { menuLateral } from './menuLateral/menuLateral.component';
-import { registrarUsuario } from './registrarUsuario/registroUsuario.component';
+import { RegistroComponent } from './registrarUsuario/registroUsuario.component';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
@@ -17,7 +17,7 @@ import { CursosComponentComponent } from './cursos-component/cursos-component.co
     menuLateral,
     mainPage,
     CursosComponentComponent,
-    registrarUsuario
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
