@@ -13,8 +13,9 @@
   <div class=fondo-img><img alt="imagen perro" src="../../assets/img-menu/logo-stucom.png" class="logo-stucom"></div>
     <div class="login">
       <form method="POST">
-        <input type="text" name="accesoDni" class="form-control" placeholder="DNI" required><br>
-        <input type="password" name="acessoPassword" class="form-control" placeholder="Contraseña" required><br>
+        <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required><br>
+        <input type="password" name="password" class="form-control" placeholder="Contraseña" required><br>
+        Centro<input type="radio" name="tipo" value="centro"> Usuario<input type="radio" name="tipo" value="usuario">
         <input type="submit" name="login" class="form-controlAcceder" value="Acceder">
         <a href="#" data-toggle="modal" data-target="#exampleModal">¿Has olvidado tu contraseña?</a>
       </form>
@@ -33,6 +34,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
         <div class="modal-body">
 
               <div class=fondo-img><img alt="logo-stucom" src="../../assets/img-menu/logo-stucom.png" class="logo-stucom-modal"></div>

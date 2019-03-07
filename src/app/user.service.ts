@@ -9,29 +9,36 @@ import { User } from './model/user.model';
 
 export class userService {
     constructor(private http: HttpClient ) { }
+    header= {headers: new HttpHeaders({'Content-Type': 'application/json'})};
+    url = 'localhost:80/EMPO/front-end/php/EstructuraPHP/index.php';
 
     getUsers() {
         let url = '/EMPO/?controller=userclass';
-        return this.http.get(url,{headers: new HttpHeaders({'Content-Type': 'application/json'})});
+        return this.http.get(url, this.header );
     }
 
     getUser(numUser: number) {
-        let url = '/EMPO/?controller=userclass&id='+ numUser;
-        return this.http.get(url,{headers: new HttpHeaders({'Content-Type': 'application/json'})});
+        let url = '/EMPO/?controller=userclass&id=' + numUser;
+        return this.http.get(url, this.header );
     }
 
     addUser(user: User) {
         let url = '/EMPO/?controller=userclass';
-        return this.http.post(url, user ,{headers:new HttpHeaders({'Content-Type': 'application/json'})});
+        return this.http.post(url, user , this.header );
     }
 
-    updateUser(numUser: number , user: User ) {
+    updateUser( numUser: number , user: User ) {
         let url = '/EMPO/?controller=userclass&id='+ numUser;
-        return this.http.put(url, user ,{headers: new HttpHeaders({'Content-Type': 'application/json'})});
+        return this.http.put(url, user , this.header );
     }
 
-    deleteUser(numUser: number ) {
+    deleteUser( numUser: number ) {
         let url = '/EMPO/?controller=userclass&id='+ numUser;
-        return this.http.delete(url,{headers: new HttpHeaders({'Content-Type': 'application/json'})});
+        return this.http.delete(url, this.header );
+    }
+    login(email, tipo, password) {
+
+        let url = "/EMPO/?controller='"+tipo+"'&operacion='login'";
+        return this.http.get(url, this.header);
     }
 }
