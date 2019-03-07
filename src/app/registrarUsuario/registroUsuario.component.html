@@ -1,9 +1,9 @@
 <main>
     <div class="div-central">
-        <input class="input-nif" type="text" name="nif" placeholder="NIF"><br>
-        <input class="input-nombreUsuario" type="text" name="nombre" placeholder="Nombre"><br>
-        <input class="input-password" type="text" name="password" placeholder="Password"><br>
-            <input class="input-tipoUsuario" type="text" name="tipo" placeholder="Tipo"><br>
-        <input class="inputRegistroBus" type="submit" name="registro" value="Registrar" placeholder="Registro">
+        <input class="input-nif" type="text" name="nif" placeholder="NIF" [(ngModel)]="newUser.nif"><br>
+        <input class="input-nombreUsuario" type="text" name="nombre" placeholder="Nombre" [(ngModel)]="newUser.nombre"><br>
+        <input class="input-password" type="text" name="password" placeholder="Password" [(ngModel)]="newUser.password")]><br>
+        <input class="input-tipoUsuario" type="text" name="tipo" placeholder="Tipo" [(ngModel)]="newUser.tipo"><br>
+        <input class="inputRegistroBus" type="submit" name="registro" value="Registrar" placeholder="Registro" (click)="addUser()">
     </div>
 </main>

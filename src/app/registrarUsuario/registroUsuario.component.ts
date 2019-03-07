@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { userService } from "../user.service";
 import { User } from "../model/user.model";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
     selector: 'registrar-usuario',
@@ -10,7 +10,9 @@ import { HttpClient } from '@angular/common/http';
     providers: [userService]
 })
 export class RegistroComponent implements OnInit{
+
     newUser:User = new User(0, "", "", "", "", "", "", "");
+
     user:User = new User(0, "", "", "", "", "", "", "");
     users = [this.user];
     constructor(private userService:userService) {}
