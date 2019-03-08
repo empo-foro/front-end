@@ -1,6 +1,6 @@
 {
   "/EMPO/*": {
-    "target": "http://localhost:80",
+    "target": "http://localhost",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

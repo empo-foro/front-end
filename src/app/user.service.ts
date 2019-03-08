@@ -10,7 +10,7 @@ import { User } from './model/user.model';
 export class UserService {
     constructor(private http: HttpClient ) { }
     header= {headers: new HttpHeaders({'Content-Type': 'application/json'})};
-    url = '  EMPO/front-end/php/back-end/EstructuraPHP/index.php';
+    url = 'localhost:80/EMPO/front-end/php/EstructuraPHP/index.php';
 
     getUsers() {
         let url = '/EMPO/?controller=userclass';
