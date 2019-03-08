@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { userService } from "../user.service";
+import { UserService } from "../user.service";
 import { User } from "../model/user.model";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
     selector: 'registrar-usuario',
     templateUrl: 'registroUsuario.component.html',
     styleUrls: ['registroUsuario.css'],
-    providers: [userService]
+    providers: [UserService]
 })
 export class RegistroComponent implements OnInit{
 
@@ -15,7 +15,7 @@ export class RegistroComponent implements OnInit{
 
     user:User = new User(0, "", "", "", "", "", "", "");
     users = [this.user];
-    constructor(private userService:userService) {}
+    constructor(private userService:UserService) {}
     ngOnInit(): void {
     }
 

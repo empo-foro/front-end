@@ -8,7 +8,7 @@ export class User {
   email: string = "";
   biografia: string = "";
 
-  constructor(id:number, nif:string, nombre:string, password:string, img:string, tipo:string, email:string,biografia:string) {
+  constructor(id:number=0, nif:string='', nombre:string='', password:string='', img:string='', tipo:string='', email:string='',biografia:string='') {
     this.id = id ;
     this.nif = nif ;
     this.nombre = nombre ;

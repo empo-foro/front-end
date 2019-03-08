@@ -7,10 +7,10 @@ import { User } from './model/user.model';
     providedIn: 'root'
 })
 
-export class userService {
+export class UserService {
     constructor(private http: HttpClient ) { }
     header= {headers: new HttpHeaders({'Content-Type': 'application/json'})};
-    url = 'localhost:80/EMPO/front-end/php/EstructuraPHP/index.php';
+    url = '  EMPO/front-end/php/back-end/EstructuraPHP/index.php';
 
     getUsers() {
         let url = '/EMPO/?controller=userclass';
@@ -22,9 +22,8 @@ export class userService {
         return this.http.get(url, this.header );
     }
 
-    addUser(user: User) {
-        let url = '/EMPO/?controller=userclass';
-        return this.http.post(url, user , this.header );
+    addUser(user: User):Observable<any> {
+        return this.http.post(this.url + "?controller=usuario", user , this.header );
     }
 
     updateUser( numUser: number , user: User ) {
@@ -36,9 +35,10 @@ export class userService {
         let url = '/EMPO/?controller=userclass&id='+ numUser;
         return this.http.delete(url, this.header );
     }
-    login(email, tipo, password) {
 
-        let url = "/EMPO/?controller='"+tipo+"'&operacion='login'";
-        return this.http.get(url, this.header);
+    login(email, tipo, password):Observable<any> {
+      console.log(this.url + "?controller="+tipo+"&operacion=logIn&email="+email+"&password=" + password);
+        let url = this.url + "?controller="+tipo+"&operacion=logIn&email="+email+"&password=" + password;
+        return this.http.get( url, this.header);
     }
 }
