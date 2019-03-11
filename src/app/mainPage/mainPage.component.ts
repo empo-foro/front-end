@@ -14,7 +14,7 @@ import { UserService } from "../user.service";
 
 export class mainPage {
 
-  nuevoUsuario : User = new User();
+  nuevoUsuario : User = new User(null, null, null, null, null, null, null, null);
   constructor(private service: UserService ) { }
 
   login(){

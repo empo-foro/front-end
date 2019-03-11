@@ -5,6 +5,10 @@
         <input class="input-password" type="text" name="password" placeholder="Password" [(ngModel)]="newUser.password"><br>
         <input class="input-tipoUsuario" type="text" name="tipo" placeholder="Tipo" [(ngModel)]="newUser.tipo"><br>
         <input class="input.email" type="text" name="email" placeholder="Email" [(ngModel)]="newUser.email"><br>
+        <!-- <input type="file" id="file" (change)="handleFileInput($event.target.files)" !-->
         <input class="inputRegistroBus" type="submit" name="registro" value="Registrar" placeholder="Registro" (click)="addUser()">
+        <div id="mensaje">
+
+        </div>
     </div>
 </main>

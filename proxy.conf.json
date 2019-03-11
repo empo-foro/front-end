@@ -1,5 +1,5 @@
 {
-  "/EMPO/*": {
+  "/DAW_EMPO/*": {
     "target": "http://localhost",
     "secure": false,
     "logLevel": "debug",
