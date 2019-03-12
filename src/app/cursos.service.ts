@@ -13,7 +13,7 @@ export class CursosService {
     url = '/DAW_EMPO/front-end/php/EstructuraPHP/index2.php';
 
     getCurso() {
-        let url = '/EMPO/?controller=curso';
+        let url = this.url + '?controller=curso';
         return this.http.get(url, this.header );
     }
 }

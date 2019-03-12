@@ -10,6 +10,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 })
 
 export class RegistrarCursoComponent implements OnInit{
+
+    cursoSeleccionado;
     cursos;
     curso:Curso;
     nuevoCurso:Curso;
@@ -25,11 +27,46 @@ export class RegistrarCursoComponent implements OnInit{
         this._cursoService.getCurso()
             .subscribe(
                 (result) => {
-                    var cursos = result["resposta"];
+                    console.log(result);
+                    this.cursos = result['data'];
                     console.log(result);
                 }, (error) => {
                     console.log(error);
                 }
             )
         }
+
+    filesToUpload: FileList = null;
+
+    handleFileInput(files: FileList) {
+        this.filesToUpload = files;
+    }
+    /*
+        uploadFileToActivity() {
+            this.userService.postFile(this.fileToUpload).subscribe(data => {
+                // do something, if upload success
+            }, error => {
+                console.log(error);
+            });
+        }
+    */
+
+
+    addUser() {
+        const formData: FormData = new FormData();
+
+        for (let i = 0; i < this.filesToUpload.length; i++) {
+            formData.append(i.toString(),  this.filesToUpload[i],  this.filesToUpload[i].name);
+        }
+        formData.append("data", JSON.stringify(this.cursos));
+
+        /*  this.userService.addUser(this.newUser).subscribe(
+              (result) => {
+                  console.log(result.message);
+              },
+              (error) => {
+                  console.log(error);
+              }
+          )*/
+    }
     }

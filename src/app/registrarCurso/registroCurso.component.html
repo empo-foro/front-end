@@ -1,5 +1,13 @@
 <main>
     <div class="div-central">
-        <h1>FUNCIONA</h1>
+        <select [(ngModel)]="cursoSeleccionado">
+            <option *ngFor="let curso of cursos" value="{{curso.id_curso}}">
+                {{ curso.nombre }}
+            </option>
+        </select>
+        <br>
+        <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+        <br>
+        <input class="inputRegistroBus" type="submit" name="registro" value="Registrar" placeholder="Registro" (click)="addUser()">
     </div>
 </main>

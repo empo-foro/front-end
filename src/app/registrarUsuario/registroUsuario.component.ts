@@ -18,30 +18,45 @@ export class RegistroComponent implements OnInit{
     ngOnInit(): void {
 
     }
-    fileToUpload: File = null;
+    filesToUpload: FileList = null;
 
-    /*handleFileInput(files: FileList) {
-        this.fileToUpload = files.item(0);
+    handleFileInput(files: FileList) {
+        this.filesToUpload = files;
     }
-
+/*
     uploadFileToActivity() {
         this.userService.postFile(this.fileToUpload).subscribe(data => {
             // do something, if upload success
         }, error => {
             console.log(error);
         });
-    } */
-
+    }
+*/
 
 
     addUser() {
-        this.userService.addUser(this.newUser).subscribe(
+        const formData: FormData = new FormData();
+
+        for (let i = 0; i < this.filesToUpload.length; i++) {
+            formData.append(i.toString(),  this.filesToUpload[i],  this.filesToUpload[i].name);
+        }
+        formData.append("data", JSON.stringify(this.newUser));
+
+        this.userService.addUser(formData).subscribe(
             (result) => {
                 console.log(result.message);
             },
             (error) => {
                 console.log(error);
             }
-        )
+        );
+      /*  this.userService.addUser(this.newUser).subscribe(
+            (result) => {
+                console.log(result.message);
+            },
+            (error) => {
+                console.log(error);
+            }
+        )*/
     }
 }
