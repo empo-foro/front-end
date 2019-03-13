@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { mainPage } from './mainPage/mainPage.component';
 import { menuLateral } from './menuLateral/menuLateral.component';
 import { RegistroComponent } from './registrarUsuario/registroUsuario.component';
+import { RegistrarCursoComponent } from './registrarCurso/registrarCurso.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { CursosComponentComponent } from './cursos-component/cursos-component.co
     mainPage,
     CursosComponentComponent,
     RegistroComponent,
+    RegistrarCursoComponent
   ],
   imports: [
     BrowserModule,

@@ -12,23 +12,51 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class RegistroComponent implements OnInit{
 
     newUser:User = new User(null, null, null, null, null, null, null, null);
-
     user:User = new User(null, null, null, null, null, null, null, null);
     users = [this.user];
     constructor(private userService:UserService) {}
     ngOnInit(): void {
+
     }
+    filesToUpload: FileList = null;
+
+    handleFileInput(files: FileList) {
+        this.filesToUpload = files;
+    }
+/*
+    uploadFileToActivity() {
+        this.userService.postFile(this.fileToUpload).subscribe(data => {
+            // do something, if upload success
+        }, error => {
+            console.log(error);
+        });
+    }
+*/
+
 
     addUser() {
-        this.userService.addUser(this.newUser).subscribe(
+        const formData: FormData = new FormData();
+
+        for (let i = 0; i < this.filesToUpload.length; i++) {
+            formData.append(i.toString(),  this.filesToUpload[i],  this.filesToUpload[i].name);
+        }
+        formData.append("data", JSON.stringify(this.newUser));
+
+        this.userService.addUser(formData).subscribe(
             (result) => {
-                console.log(this.newUser);
-                console.log(result);
+                console.log(result.message);
             },
             (error) => {
                 console.log(error);
             }
-        )
+        );
+      /*  this.userService.addUser(this.newUser).subscribe(
+            (result) => {
+                console.log(result.message);
+            },
+            (error) => {
+                console.log(error);
+            }
+        )*/
     }
-
 }

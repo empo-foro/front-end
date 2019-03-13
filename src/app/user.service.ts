@@ -22,8 +22,11 @@ export class UserService {
         return this.http.get(url, this.header );
     }
 
-    addUser( user: User ):Observable<any> {
-        return this.http.post( this.url + "?controller=usuario", user , this.header );
+    /*addUser(user: User):Observable<any> {
+        return this.http.post(this.url + "?controller=usuario", user , this.header );
+    }*/
+    addUser(user: FormData):Observable<any> {
+        return this.http.post(this.url + "?controller=usuario", user , this.header );
     }
 
     updateUser( numUser: number , user: User ) {
