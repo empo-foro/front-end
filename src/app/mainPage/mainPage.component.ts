@@ -28,14 +28,11 @@ export class mainPage {
               console.log(result.message)
               this.router.navigate(['menuLateral']);
 
-          console.log(result)
-          if (result["message"] == 'Success') {
-
         },
         (error) => {
 
           }
-        }
+
       )
   }
 
