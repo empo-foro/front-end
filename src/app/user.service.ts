@@ -10,7 +10,7 @@ import { User } from './model/user.model';
 export class UserService {
     constructor(private http: HttpClient ) { }
     header= {headers: new HttpHeaders({'Content-Type': 'application/json'})};
-    url = 'localhost:80/EMPO/front-end/php/EstructuraPHP/index.php';
+    url = 'EMPO/front-end/php/back-end/EstructuraPHP/index2.php';
 
     getUsers() {
         let url = '/EMPO/?controller=userclass';
@@ -22,8 +22,8 @@ export class UserService {
         return this.http.get(url, this.header );
     }
 
-    addUser(user: User):Observable<any> {
-        return this.http.post(this.url + "?controller=usuario", user , this.header );
+    addUser( user: User ):Observable<any> {
+        return this.http.post( this.url + "?controller=usuario", user , this.header );
     }
 
     updateUser( numUser: number , user: User ) {

@@ -5,7 +5,9 @@ import {menuLateral} from './menuLateral/menuLateral.component';
 import {mainPage} from './mainPage/mainPage.component';
 
 const appRoutes: Routes = [
-  { path : 'GENERAL', component: mainPage }
+  { path : '', component: mainPage },
+  {path : 'menuLateral', component: menuLateral}
+
 ];
 
 @NgModule({

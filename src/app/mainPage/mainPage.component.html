@@ -6,22 +6,31 @@
     })
   </script>
 </head>
-<div class="div-central">
+<div class="div-central ">
+<div class="div-todo col-12">
 
-<div class="div-todo">
-
-  <div class=fondo-img><img alt="imagen perro" src="../../assets/img-menu/logo-stucom.png" class="logo-stucom"></div>
-    <div class="login">
+  <div class=fondo-img><img alt="imagen" src="../../assets/img-menu/logo-stucom.png" class="logo-stucom"></div>
+    <div class="login container-fluid">
       <form method="POST">
-        <input type="email" name="email" class="form-control" placeholder="Correo electrónico" [(ngModel)]="nuevoUsuario.email" required><br>
-        <input type="password" name="password" class="form-control" placeholder="Contraseña" [(ngModel)]="nuevoUsuario.password" required><br>
-        Centro<input type="radio" name="tipo" value="centro" [(ngModel)]="nuevoUsuario.tipo" checked> Usuario<input type="radio" name="tipo" value="usuario" [(ngModel)]="nuevoUsuario.tipo">
-        <input type="submit" name="login" class="form-controlAcceder" value="Acceder" (click)="login()">
-        <a href="#" data-toggle="modal" data-target="#exampleModal">¿Has olvidado tu contraseña?</a>
+        <label for="inputEmail" class="sr-only">Email</label>
+          <input type="email" name="email" id="inputEmail" class="form-control " placeholder="Correo electrónico" [(ngModel)]="nuevoUsuario.email" required autofocus>
+          <label for="inputPass" class="sr-only">Password</label>
+          <input type="password" name="password" id="inputPass" class="form-control" placeholder="Contraseña" [(ngModel)]="nuevoUsuario.password" required>
+        <div class="row container">
+          <div class="col-5 container-fluid">
+            Centro <input type="radio" name="tipo" value="centro" [(ngModel)]="nuevoUsuario.tipo" checked>
+          </div>
+          <div class="col-5 container-fluid">
+            Usuario <input type="radio" name="tipo" value="usuario" [(ngModel)]="nuevoUsuario.tipo">
+          </div>
+        </div>
+          <input type="submit" name="login" class="btn btn-lg btn-primary btn-block" value="Acceder" (click)="login()">
+        <div class="row container-fluid">
+          <a href="#" data-toggle="modal" data-target="#exampleModal">¿Has olvidado tu contraseña?</a>
+        </div>
       </form>
     </div>
 </div>
-
 </div>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -40,7 +49,7 @@
 
               <div class="rec-pass">
                 <form method="POST" name="rec-pass">
-                  <input type="text" name="accesoDni" placeholder="DNI" required><br><br>
+                  <input type="email" class="form-control" name="accesoDni" placeholder="email" required><br><br>
                   <input type="submit" class="btn btn-secondary" name="login"  value="Solicitar" data-dismiss="modal">
                 </form>
               </div>
