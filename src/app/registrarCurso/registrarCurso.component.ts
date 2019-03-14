@@ -41,6 +41,30 @@ export class RegistrarCursoComponent implements OnInit{
     handleFileInput(files: FileList) {
         this.filesToUpload = files;
     }
+
+    function() {
+        const formData: FormData = new FormData();
+
+        for (let i = 0; i < this.filesToUpload.length; i++) {
+            formData.append(i.toString(),  this.filesToUpload[i],  this.filesToUpload[i].name);
+            console.log(formData);
+
+        }
+        formData.append("id_curso", JSON.stringify(this.cursoSeleccionado));
+        formData.append("tipo", JSON.stringify("alumno"));
+
+        console.log(formData);
+        /*
+        this.userService.addUser(formData).subscribe(
+            (result) => {
+                console.log(result.message);
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
+        */
+    }
     /*
         uploadFileToActivity() {
             this.userService.postFile(this.fileToUpload).subscribe(data => {
