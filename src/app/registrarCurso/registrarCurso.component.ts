@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { CursosService } from "../cursos.service";
+import { CursosService } from "../services/cursos.service";
 import { Curso } from "../model/curso.model";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 

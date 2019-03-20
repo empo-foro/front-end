@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from './model/user.model';
+import { User } from '../model/user.model';
 
 @Injectable({
     providedIn: 'root'
@@ -40,8 +40,27 @@ export class UserService {
     }
 
     login(email, tipo, password):Observable<any> {
-      console.log(this.url + "?controller="+tipo+"&operacion=logIn&email="+email+"&password=" + password);
-        let url = this.url + "?controller="+tipo+"&operacion=logIn&email="+email+"&password=" + password;
-        return this.http.get( url, this.header);
+
+      var data = {
+        "email":email,
+        "password":password
+      };
+
+      let url = this.url + "?controller="+tipo+"&operacion=logIn";
+      return this.http.post( url, data, this.header );
     }
+
+    checkToken(token, tipo){
+      var data ={
+        "id_token" : token
+      };
+      let url = this.url + "?controller="+tipo+"&operacion=checkToken";
+      return this.http.post( url, data, this.header);
+    }
+
+  logOut(id_token, tipo){
+    let url = this.url + "?controller="+tipo+"&operacion=logOut&id_token="+id_token;
+    return this.http.get(url, this.header);
+  }
+
 }
