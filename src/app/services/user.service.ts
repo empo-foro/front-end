@@ -10,6 +10,7 @@ import { User } from '../model/user.model';
 export class UserService {
     constructor(private http: HttpClient ) { }
     header= {headers: new HttpHeaders({'Content-Type': 'application/json'})};
+    headerFiles = {headers: new HttpHeaders({'enctype': 'multipart/form-data'})};
     url = 'DAW_EMPO/front-end/php/EstructuraPHP/index2.php';
 
     getUsers() {
@@ -22,6 +23,10 @@ export class UserService {
         return this.http.get(url, this.header );
     }
 
+    addUsers(data):Observable<any> {
+        let url = "?controller=usuario&operacion=registro-usuario";
+        return this.http.post(this.url + url, data, this.headerFiles);
+    }
     /*addUser(user: User):Observable<any> {
         return this.http.post(this.url + "?controller=usuario", user , this.header );
     }*/

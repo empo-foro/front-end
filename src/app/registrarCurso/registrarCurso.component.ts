@@ -1,12 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { CursosService } from "../services/cursos.service";
+import { UserService } from "../services/user.service";
 import { Curso } from "../model/curso.model";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Component({
     selector: 'registrar-curso',
     templateUrl: 'registroCurso.component.html',
-    providers: [CursosService]
+    providers: [CursosService, UserService ]
 })
 
 export class RegistrarCursoComponent implements OnInit{
@@ -16,7 +17,7 @@ export class RegistrarCursoComponent implements OnInit{
     curso:Curso;
     nuevoCurso:Curso;
 
-    constructor( private _cursoService:CursosService) {
+    constructor( private _cursoService:CursosService, private _userService:UserService ) {
         this.cursos = Array<Curso>();
         this.curso = null;
         this.nuevoCurso = new Curso(null,null,null);
@@ -42,18 +43,32 @@ export class RegistrarCursoComponent implements OnInit{
         this.filesToUpload = files;
     }
 
-    function() {
-        const formData: FormData = new FormData();
+    uploadCSV() {
 
-        for (let i = 0; i < this.filesToUpload.length; i++) {
-            formData.append(i.toString(),  this.filesToUpload[i],  this.filesToUpload[i].name);
-            console.log(formData);
+        var data = {
+            "fichero":this.filesToUpload[0],
+            "id_curso":this.cursoSeleccionado,
+            "tipo":"Alumno"
+        };
 
-        }
-        formData.append("id_curso", JSON.stringify(this.cursoSeleccionado));
-        formData.append("tipo", JSON.stringify("alumno"));
+        var formData = new FormData();
+        formData.append("fichero", this.filesToUpload[0]);
+        formData.append("id_curso", this.cursoSeleccionado);
+        formData.append("tipo", "Alumno");
 
-        console.log(formData);
+
+        this._userService.addUsers(formData).subscribe(
+            (result) => {
+                console.log(result);
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
+
+       // var formData: FormData = new FormData(form);
+
+
         /*
         this.userService.addUser(formData).subscribe(
             (result) => {
