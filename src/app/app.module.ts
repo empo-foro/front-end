@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AlertModule } from 'ngx-bootstrap';
 
 import { mainPage } from './mainPage/mainPage.component';
 import { menuLateral } from './menuLateral/menuLateral.component';
@@ -26,7 +27,8 @@ import { CursosComponentComponent } from './cursos-component/cursos-component.co
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+      AlertModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

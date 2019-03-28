@@ -11,7 +11,8 @@ export class UserService {
     constructor(private http: HttpClient ) { }
     header= {headers: new HttpHeaders({'Content-Type': 'application/json'})};
     headerFiles = {headers: new HttpHeaders({'enctype': 'multipart/form-data'})};
-    url = '/front-end/php/EstructuraPHP/index2.php';
+
+    url = '/front-end/src/php/back-end/EstructuraPHP/index2.php';
 
     getUsers() {
         let url = '/EMPO/?controller=userclass';

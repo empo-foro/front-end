@@ -1,11 +1,11 @@
 <main>
-<head>
-  <script>
-      $('#recPass').on('shown.bs.modal', function () {
-      $('#myInput').trigger('focus')
-    })
-  </script>
-</head>
+  <head>
+    <script>
+        $('#recPass').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+      })
+    </script>
+  </head>
 <div class="div-central ">
 <div class="div-todo col-12">
 
@@ -18,10 +18,10 @@
           <input type="password" name="password" id="inputPass" class="form-control" placeholder="Contraseña" [(ngModel)]="nuevoUsuario.password" required>
         <div class="row container">
           <div class="col-5 container-fluid">
-            Centro <input type="radio" name="tipo" value="centro" [(ngModel)]="nuevoUsuario.tipo" checked>
+            Centro <input type="radio" name="tipo" value="Centro" [(ngModel)]="nuevoUsuario.tipo" checked>
           </div>
           <div class="col-5 container-fluid">
-            Alumno <input type="radio" name="tipo" value="usuario" [(ngModel)]="nuevoUsuario.tipo">
+            Alumno <input type="radio" name="tipo" value="Usuario" [(ngModel)]="nuevoUsuario.tipo">
           </div>
         </div>
           <input type="submit" name="login" class="btn btn-lg btn-primary btn-block" value="Acceder" (click)="login()">
