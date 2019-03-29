@@ -10,10 +10,11 @@ import { Asignatura} from '../model/asignatura.model';
 export class asignaturaService {
   constructor(private http: HttpClient) { }
   header= {headers: new HttpHeaders({'Content-Type': 'application/json'})};
-  url = '/DAW_EMPO/front-end/php/EstructuraPHP/index2.php';
+  url = '/EMPO/front-end/php/back-end/EstructuraPHP/index2.php';
 
-  getAsignatura() {
+  getAsignaturas() {
     let url = this.url + '?controller=asignatura';
     return this.http.get(url, this.header );
   }
+
 }

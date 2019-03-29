@@ -19,8 +19,6 @@ export class mainPage implements OnInit {
   constructor(private service: UserService , private router: Router) { }
 
   ngOnInit():void{
-    console.log(localStorage.getItem("token"));
-    console.log(localStorage.getItem("tipo"));
     let localStorageToken=localStorage.getItem("token");
     let localStorageTipo=localStorage.getItem("tipo");
 
@@ -30,11 +28,11 @@ export class mainPage implements OnInit {
           (result)=>{
             this.router.navigate(['menuLateral']);
           },(error) => {
-            console.log("nanai");
+            console.log("Error al iniciar sesión");
       });
 
     }else{
-      console.log("nanai");
+      console.log("Error al iniciar sesión");
     }
   }
 
@@ -58,9 +56,7 @@ export class mainPage implements OnInit {
               let sesion:Session = new Session(id_token, user);
               localStorage.setItem("token", id_token);
               localStorage.setItem("tipo", this.nuevoUsuario.tipo);
-              console.log(result)
-              console.log(biografia);
-              console.log(this.nuevoUsuario.tipo)
+
               this.router.navigate(['menuLateral']);
 
         },
