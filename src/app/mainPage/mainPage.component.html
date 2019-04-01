@@ -13,12 +13,12 @@
     <div class="login container-fluid">
       <form method="POST">
         <label for="inputEmail" class="sr-only">Email</label>
-          <input type="email" name="email" id="inputEmail" class="form-control " placeholder="Correo electrónico" [(ngModel)]="nuevoUsuario.email" required autofocus>
+          <input type="email" name="email" id="inputEmail" class="form-control " placeholder="Correo electrónico" [(ngModel)]="nuevoUsuario.email" required autofocus><br>
           <label for="inputPass" class="sr-only">Password</label>
           <input type="password" name="password" id="inputPass" class="form-control" placeholder="Contraseña" [(ngModel)]="nuevoUsuario.password" required>
         <div class="row container">
           <div class="col-5 container-fluid">
-            Centro <input type="radio" name="tipo" value="Centro" [(ngModel)]="nuevoUsuario.tipo" checked>
+            Centro <input type="radio" name="tipo" value="  Centro" [(ngModel)]="nuevoUsuario.tipo" checked>
           </div>
           <div class="col-5 container-fluid">
             Alumno <input type="radio" name="tipo" value="Usuario" [(ngModel)]="nuevoUsuario.tipo">
