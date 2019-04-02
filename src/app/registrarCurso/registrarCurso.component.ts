@@ -4,6 +4,7 @@ import { UserService } from "../services/user.service";
 import { User } from "../model/user.model";
 import { Curso } from "../model/curso.model";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import {logger} from "codelyzer/util/logger";
 
 @Component({
     selector: 'registrar-curso',
@@ -48,15 +49,8 @@ export class RegistrarCursoComponent implements OnInit{
 */
 
     addUser2() {
-        const formData: FormData = new FormData();
 
-        for (let i = 0; i < this.filesToUpload2.length; i++) {
-            console.log(this.filesToUpload2);
-            formData.append(i.toString(),  this.filesToUpload2[i],  this.filesToUpload2[i].name);
-        }
-        formData.append("data", JSON.stringify(this.newUser));
-
-        this.userService.addUser(formData).subscribe(
+        this.userService.addUser(this.newUser).subscribe(
             (result) => {
                 console.log(result.message);
             },
