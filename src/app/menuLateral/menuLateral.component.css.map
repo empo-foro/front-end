@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,eAAe;EACb,gBAAgB,EAAE,OAAO;EACzB,UAAU,EAAC,gBAAgB;EAC3B,mCAAmB;IACjB,MAAM,EAAE,eAAe;IACvB,aAAa,EAAE,KAAK",
+"mappings": "AAAA,eAAe;EACb,gBAAgB,EAAE,OAAO;EACzB,MAAM,EAAE,IAAI;EACZ,UAAU,EAAC,gBAAgB;EAC3B,mCAAmB;IACjB,MAAM,EAAE,eAAe;IACvB,aAAa,EAAE,KAAK;;AAGxB,cAAc;EACZ,MAAM,EAAC,eAAe;EACtB,MAAM,EAAE,KAAK;;AAGf,eAAe;EACb,MAAM,EAAE,OAAO",
 "sources": ["menuLateral.scss"],
 "names": [],
 "file": "menuLateral.component.css"

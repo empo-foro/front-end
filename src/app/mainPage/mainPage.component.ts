@@ -57,7 +57,7 @@ export class mainPage implements OnInit {
               localStorage.setItem("token", id_token);
               localStorage.setItem("tipo", this.nuevoUsuario.tipo);
 
-              this.router.navigate(['menuLateral']);
+              this.router.navigate(['']);
 
         },
         (error) => {

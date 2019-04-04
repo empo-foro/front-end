@@ -69,4 +69,12 @@ export class UserService {
     return this.http.get(url, this.header);
   }
 
+  getAsignaturasUsuario(token,tipo){
+      var data = {
+        "token":token,
+        "tipo": tipo
+      }
+      let url = this.url + "?controller=";
+      return this.http.post(url, data, this.header);
+  }
 }

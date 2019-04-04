@@ -1,8 +1,16 @@
 .barra-superior {
   background-color: #76cad4;
+  height: 60px;
   box-shadow: 2px 2px 5px grey; }
   .barra-superior .img-barra-superior {
     border: solid black 2px;
     border-radius: 100px; }
+
+.barra-lateral {
+  border: solid 1px black;
+  height: 700px; }
+
+.cursor-pointer {
+  cursor: pointer; }
 
 /*# sourceMappingURL=menuLateral.css.map */
