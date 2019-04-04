@@ -25,14 +25,15 @@ export class UserService {
     }
 
     addUsers(data):Observable<any> {
-        let url = "?controller=usuario&operacion=registro-usuario";
+        let url = "?controller=usuario&operacion=registro-usuarios";
         return this.http.post(this.url + url, data, this.headerFiles);
     }
     /*addUser(user: User):Observable<any> {
         return this.http.post(this.url + "?controller=usuario", user , this.header );
     }*/
-    addUser(user: FormData):Observable<any> {
-        return this.http.post(this.url + "?controller=usuario", user , this.header );
+    addUser(user):Observable<any> {
+        let url = "?controller=usuario"
+        return this.http.post(this.url + url, user , this.header );
     }
 
     updateUser( numUser: number , user: User ) {
