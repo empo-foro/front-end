@@ -10,7 +10,7 @@ import { Curso } from "../model/curso.model";
 export class CursosService {
     constructor(private http: HttpClient) { }
     header= {headers: new HttpHeaders({'Content-Type': 'application/json'})};
-    url = '/DAW_EMPO/front-end/php/EstructuraPHP/index2.php';
+    url = '/front-end/src/php/back-end/EstructuraPHP/index2.php';
 
     getCurso() {
         let url = this.url + '?controller=curso';

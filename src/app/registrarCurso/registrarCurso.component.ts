@@ -1,8 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { CursosService } from "../services/cursos.service";
 import { UserService } from "../services/user.service";
+import { User } from "../model/user.model";
 import { Curso } from "../model/curso.model";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import {logger} from "codelyzer/util/logger";
 
 @Component({
     selector: 'registrar-curso',
@@ -12,15 +14,58 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 export class RegistrarCursoComponent implements OnInit{
 
+    newUser:User = new User(null, null, null, null, null, null, null, null,null);
+    user:User = new User(null, null, null, null, null, null, null, null,null);
+    users = [this.user];
     cursoSeleccionado;
     cursos;
     curso:Curso;
     nuevoCurso:Curso;
 
-    constructor( private _cursoService:CursosService, private _userService:UserService ) {
+    constructor( private _cursoService:CursosService, private _userService:UserService, private userService:UserService ) {
         this.cursos = Array<Curso>();
         this.curso = null;
         this.nuevoCurso = new Curso(null,null,null);
+    }
+
+    ngOnInit2(): void {
+
+    }
+
+    filesToUpload2: FileList = null;
+
+    handleFileInput2(files: FileList) {
+        this.filesToUpload2 = files;
+    }
+
+    /*
+    uploadFileToActivity() {
+        this.userService.postFile(this.fileToUpload).subscribe(data => {
+            // do something, if upload success
+        }, error => {
+            console.log(error);
+        });
+    }
+*/
+
+    addUser2() {
+
+        this.userService.addUser(this.newUser).subscribe(
+            (result) => {
+                console.log(result.message);
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
+        /*  this.userService.addUser(this.newUser).subscribe(
+              (result) => {
+                  console.log(result.message);
+              },
+              (error) => {
+                  console.log(error);
+              }
+          )*/
     }
 
     ngOnInit(): void {
