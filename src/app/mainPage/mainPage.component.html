@@ -1,4 +1,5 @@
 <main>
+
   <head>
     <script>
         $('#recPass').on('shown.bs.modal', function () {
@@ -6,60 +7,91 @@
       })
     </script>
   </head>
-<div class="div-central ">
-<div class="div-todo col-12">
 
-  <div class=fondo-img><img alt="imagen" src="../../assets/img-menu/logo-stucom.png" class="logo-stucom"></div>
-    <div class="login container-fluid">
-      <form method="POST">
-        <label for="inputEmail" class="sr-only">Email</label>
-          <input type="email" name="email" id="inputEmail" class="form-control " placeholder="Correo electrónico" [(ngModel)]="nuevoUsuario.email" required autofocus>
-          <label for="inputPass" class="sr-only">Password</label>
-          <input type="password" name="password" id="inputPass" class="form-control" placeholder="Contraseña" [(ngModel)]="nuevoUsuario.password" required>
-        <div class="row container">
-          <div class="col-5 container-fluid">
-            Centro <input type="radio" name="tipo" value="Centro" [(ngModel)]="nuevoUsuario.tipo" checked>
-          </div>
-          <div class="col-5 container-fluid">
-            Alumno <input type="radio" name="tipo" value="Usuario" [(ngModel)]="nuevoUsuario.tipo">
-          </div>
-        </div>
-          <input type="submit" name="login" class="btn btn-lg btn-primary btn-block" value="Acceder" (click)="login()">
-        <div class="row container-fluid">
-          <a href="#" data-toggle="modal" data-target="#exampleModal">¿Has olvidado tu contraseña?</a>
-        </div>
-      </form>
-    </div>
-</div>
-</div>
+<div class="container-fluid background">
+    <div class="row" style="padding-top: 150px;">
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Recuperar contraseña</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 
-        <div class="modal-body">
+        <div class="card">
 
-              <div class=fondo-img><img alt="logo-stucom" src="../../assets/img-menu/logo-stucom.png" class="logo-stucom-modal"></div>
+          <div class="card-body">
 
-              <div class="rec-pass">
-                <form method="POST" name="rec-pass">
-                  <input type="email" class="form-control" name="accesoDni" placeholder="email" required><br><br>
-                  <input type="submit" class="btn btn-secondary" name="login"  value="Solicitar" data-dismiss="modal">
-                </form>
+            <div class="text-center">
+              <img class="mx-auto" src="../../assets/img-menu/logo-stucom.png" height="150"/>
+            </div>
+
+            <form>
+
+              <div class="form-group">
+                <label for="inputEmail">Correo electrónico</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" [(ngModel)]="nuevoUsuario.email" name="email" required autofocus>
               </div>
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <div class="form-group">
+                <label for="inputPassword">Contraseña</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" [(ngModel)]="nuevoUsuario.password" name="password" required>
+              </div>
+
+              <div class="form-group">
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="radioCentro" name="tipo" value="Centro" [(ngModel)]="nuevoUsuario.tipo">
+                  <label class="from-check-label" for="radioCentro">Centro</label>
+
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="radioAlumno" name="tipo" value="Usuario" [(ngModel)]="nuevoUsuario.tipo">
+                  <label class="form-check-label" for="radioAlumno">Alumno</label>
+                </div>
+
+              </div>
+
+              <div class="form-group">
+                <button class="btn btn-primary btn-block text-uppercase" type="submit" (click)="login()">Sign in</button>
+              </div>
+
+              <div class="form-group text-center">
+                <a class="text-center" href="#" data-toggle="modal" data-target="#exampleModal">¿Has olvidado tu contraseña?</a>
+              </div>
+
+            </form>
+
+          </div>
         </div>
       </div>
     </div>
-  </div>
+</div>
+
 
 </main>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Recuperar contraseña</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class=fondo-img><img alt="logo-stucom" src="../../assets/img-menu/logo-stucom.png" class="logo-stucom-modal"></div>
+
+        <div class="rec-pass">
+          <form method="POST" name="rec-pass">
+            <input type="email" class="form-control" name="accesoDni" placeholder="email" required><br><br>
+            <input type="submit" class="btn btn-secondary" name="login"  value="Solicitar" data-dismiss="modal">
+          </form>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
