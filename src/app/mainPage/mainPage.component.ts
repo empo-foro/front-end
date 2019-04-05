@@ -17,7 +17,7 @@ export class mainPage implements OnInit {
 
   nuevoUsuario : User = new User(null, null, null, null, null, null, null, null, null);
   constructor(private service: UserService , private router: Router) { }
-
+  //logged;
   ngOnInit():void{
     let localStorageToken=localStorage.getItem("token");
     let localStorageTipo=localStorage.getItem("tipo");
@@ -26,8 +26,10 @@ export class mainPage implements OnInit {
       this.service.checkToken(localStorageToken, localStorageTipo)
         .subscribe(
           (result)=>{
-            this.router.navigate(['menuLateral']);
+          //  this.logged=true;
+            this.router.navigate(['registrarCurso']);
           },(error) => {
+            this.router.navigate(['']);
             console.log("Error al iniciar sesión");
       });
 
@@ -57,7 +59,7 @@ export class mainPage implements OnInit {
               localStorage.setItem("token", id_token);
               localStorage.setItem("tipo", this.nuevoUsuario.tipo);
 
-              this.router.navigate(['']);
+              this.router.navigate(['registrarCurso']);
 
         },
         (error) => {

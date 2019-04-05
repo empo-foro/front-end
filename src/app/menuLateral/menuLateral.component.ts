@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 export class menuLateral implements OnInit{
     openHamburguer=false;
     constructor(private service: UserService , private router: Router) { }
-
+  logged;
   ngOnInit():void{
     let localStorageToken=localStorage.getItem("token");
     let localStorageTipo=localStorage.getItem("tipo");
@@ -35,6 +35,7 @@ clickOpenHamburguer(){
     this.service.logOut(localStorageToken, localStorageTipo)
       .subscribe(
         (result)=>{
+          this.logged=false;
           localStorage.removeItem("token");
           localStorage.removeItem("tipo");
           this.router.navigate(['']);

@@ -5,6 +5,7 @@ import { User } from "../model/user.model";
 import { Curso } from "../model/curso.model";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import {logger} from "codelyzer/util/logger";
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'registrar-curso',
@@ -22,7 +23,7 @@ export class RegistrarCursoComponent implements OnInit{
     curso:Curso;
     nuevoCurso:Curso;
 
-    constructor( private _cursoService:CursosService, private _userService:UserService, private userService:UserService ) {
+    constructor( private _cursoService:CursosService, private _userService:UserService, private userService:UserService, private router: Router ) {
         this.cursos = Array<Curso>();
         this.curso = null;
         this.nuevoCurso = new Curso(null,null,null);
@@ -80,6 +81,26 @@ export class RegistrarCursoComponent implements OnInit{
                     console.log(error);
                 }
             )
+
+      /*COMPROBAR TOKEN*/
+
+      let localStorageToken=localStorage.getItem("token");
+      let localStorageTipo=localStorage.getItem("tipo");
+
+      if( localStorage != null){
+        this.userService.checkToken(localStorageToken, localStorageTipo)
+          .subscribe(
+            (result)=>{
+              //  this.logged=true;
+              this.router.navigate(['registrarCurso']);
+            },(error) => {
+              this.router.navigate(['']);
+              console.log("Error al iniciar sesión");
+            });
+
+      }else{
+        console.log("Error al iniciar sesión");
+      }
         }
 
     filesToUpload: FileList = null;
