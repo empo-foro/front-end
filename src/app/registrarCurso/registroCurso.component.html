@@ -1,14 +1,26 @@
+<head>
+    <script>
+        $('#recPass').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+    </script>
+</head>
 <div class="container-fluid">
+    <div>
+
+    </div>
     <div class="row">
         <div class="col-md-3 col-sm-1">
+            <div>
 
+            </div>
         </div>
         <div class="col-md-9 col-sm-11">
             <div class="row">
 
                 <div class="col-md-6 col-sm-12">
                     <br>
-                    <h2>Registro Usuarios</h2>
+                    <h2>Registro usuarios</h2>
                     <div class="div-central">
                         <input class="form-control form-control-sm" type="text" name="nif" placeholder="NIF"
                                [(ngModel)]="newUser.nif"><br>
@@ -59,8 +71,75 @@
                 </div>
 
             </div>
-
+            <div class="row text-center" style="margin-top: 20px;">
+                <div class="col-md-12 text-center">
+                        <table style="font-family: arial, sans-serif; border-collapse: collapse; width: 100%;" id="datatables-alumnos" class="display">
+                            <thead>
+                            <tr style="border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                                <th style="display: none;">ID</th>
+                                <th>Nombre</th>
+                                <th>NIF</th>
+                                <th>Email</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr  *ngFor="let alumno of usutipoalum" style="border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                                <td style="display: none;">{{alumno.id_usuario}}</td>
+                                <td>{{alumno.nombre}}</td>
+                                <td>{{alumno.nif}}</td>
+                                <td>{{alumno.email}}</td>
+                                <td><i class="fas fa-address-card" data-target="#exampleModal" data-toggle="modal" href="#" style="color: darkgreen;"></i></td>
+                                <td data-id="{{alumno.id_usuario}}"><i class="fas fa-user-times" data-target="#exampleModal2" data-toggle="modal" href="#" style="color: red;"></i></td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modificar Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body"><div class="rec-pass">
+                    <form method="POST" name="modificarUsuario">
+                        <input type="email" class="form-control" name="accesoDni" placeholder="email" required><br><br>
+                        <input type="submit" class="btn btn-secondary" name="login"  value="Solicitar" data-dismiss="modal">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">Eliminar Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="eliminarUsuario">
+                    <p>¿ Estas seguro de que desea eliminar a este usuario ?</p>
+                    <input class="btn btn-primary container-fluid mt-3" type="submit" value="Sí" name="Sí">
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

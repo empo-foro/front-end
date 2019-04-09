@@ -78,4 +78,6 @@ export class UserService {
       let url = this.url + "?controller=";
       return this.http.post(url, data, this.header);
   }
+
+
 }

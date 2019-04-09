@@ -29,7 +29,8 @@
             "scripts": [
               "../front-end/node_modules/jquery/dist/jquery.min.js",
               "../front-end/node_modules/popper.js/dist/umd/popper.min.js",
-              "../front-end/node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "../front-end/node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "../front-end/node_modules/dataTables/js/jquery.dataTables.min.js"
             ]
           },
           "configurations": {
