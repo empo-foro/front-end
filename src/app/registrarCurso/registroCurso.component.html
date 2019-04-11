@@ -73,28 +73,52 @@
             </div>
             <div class="row text-center" style="margin-top: 20px;">
                 <div class="col-md-12 text-center">
-                        <table style="font-family: arial, sans-serif; border-collapse: collapse; width: 100%;" id="datatables-alumnos" class="display">
-                            <thead>
-                            <tr style="border: 1px solid #dddddd; text-align: left; padding: 8px;">
-                                <th style="display: none;">ID</th>
-                                <th>Nombre</th>
-                                <th>NIF</th>
-                                <th>Email</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
+                    <table  id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th class="th-sm">Nombre
+                            </th>
+                            <th class="th-sm">NIF
+                            </th>
+                            <th class="th-sm">Email
+                            </th>
+                            <th class="th-sm">Modificar Usuario
+                            </th>
+                            <th class="th-sm">Eliminar Usuario
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr  *ngFor="let alumno of usutipoalum" style="border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                            <!--<td style="display: none;">{{alumno.id_usuario}}</td>-->
+                            <td>{{alumno.nombre}}</td>
+                            <td>{{alumno.nif}}</td>
+                            <td>{{alumno.email}}</td>
+                            <td data-id="{{alumno.id_usuario}}"> <i class="fas fa-address-card" data-target="#exampleModal" data-toggle="modal" href="#" style="color: darkgreen;"></i></td>
+                            <td data-id="{{alumno.id_usuario}}"> <i class="fas fa-user-times" data-target="#exampleModal2" data-toggle="modal" href="#" style="color: red;"></i></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--<table id="alumnos" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th style="display: none;">ID</th>
+                            <th>Nombre</th>
+                            <th>NIF</th>
+                            <th>Email</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
                             <tr  *ngFor="let alumno of usutipoalum" style="border: 1px solid #dddddd; text-align: left; padding: 8px;">
                                 <td style="display: none;">{{alumno.id_usuario}}</td>
                                 <td>{{alumno.nombre}}</td>
                                 <td>{{alumno.nif}}</td>
                                 <td>{{alumno.email}}</td>
-                                <td><i class="fas fa-address-card" data-target="#exampleModal" data-toggle="modal" href="#" style="color: darkgreen;"></i></td>
-                                <td data-id="{{alumno.id_usuario}}"><i class="fas fa-user-times" data-target="#exampleModal2" data-toggle="modal" href="#" style="color: red;"></i></td>
+                                <td data-id="{{alumno.id_usuario}}"> <i class="fas fa-address-card" data-target="#exampleModal" data-toggle="modal" href="#" style="color: darkgreen;"></i>  <i class="fas fa-user-times" data-target="#exampleModal2" data-toggle="modal" href="#" style="color: red;"></i></td>
                             </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
+                        </tbody>
+                </table>-->
                 </div>
             </div>
         </div>
@@ -135,6 +159,7 @@
 
             <div class="modal-body">
                 <div class="eliminarUsuario">
+                    <!-- coger la id del usuario que quiero eliminar -->
                     <p>¿ Estas seguro de que desea eliminar a este usuario ?</p>
                     <input class="btn btn-primary container-fluid mt-3" type="submit" value="Sí" name="Sí">
 

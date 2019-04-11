@@ -7,6 +7,7 @@ import { menuLateral } from './menuLateral/menuLateral.component';
 import { RegistroComponent } from './registrarUsuario/registroUsuario.component';
 import { RegistrarCursoComponent } from './registrarCurso/registrarCurso.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DataTablesModule } from 'angular-datatables';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -27,6 +28,7 @@ import { CursosComponentComponent } from './cursos-component/cursos-component.co
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    DataTablesModule,
     HttpClientModule,
       AlertModule.forRoot()
   ],

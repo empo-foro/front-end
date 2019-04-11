@@ -88,13 +88,23 @@ export class RegistrarCursoComponent implements OnInit{
 
             )
 
+        $(document).ready(function () {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+
+        $(document).ready(function () {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+
         /*GET PARA OBTENER TODOS LOS USUARIOS QUE SEAN TIPO ALUMNO*/
         this._cursoService.getUsuariosTipoAlumno()
             .subscribe(
                 (result) => {
                     console.log(result['data']);
                     for(let i in result["data"]){
-                        let id_usuario =result['data'][i]['id_usuario'];
+                        let id_usuario = result['data'][i]['id_usuario'];
                         let nif=result['data'][i]['nif'];
                         let nombre=result['data'][i]['nombre'];
                         let password=result['data'][i]['password'];
@@ -134,7 +144,14 @@ export class RegistrarCursoComponent implements OnInit{
       }else{
         console.log("Error al iniciar sesión");
       }
-        }
+
+      $('#alumnos').DataTable({
+          "serverSide": true,
+          "ajax": "/front-end/src/php/back-end/EstructuraPHP/index2.php?controller=Usuario&operacion=listarUsuarios&tipo=alumno",
+          "searching" : true
+      });
+        $('.dataTables_length').addClass('bs-select');
+    }
 
     filesToUpload: FileList = null;
 
