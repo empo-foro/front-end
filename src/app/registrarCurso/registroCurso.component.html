@@ -95,7 +95,7 @@
                             <td>{{alumno.nif}}</td>
                             <td>{{alumno.email}}</td>
                             <td data-id="{{alumno.id_usuario}}"> <i class="fas fa-address-card" data-target="#exampleModal" data-toggle="modal" href="#" style="color: darkgreen;"></i></td>
-                            <td data-id="{{alumno.id_usuario}}"> <i class="fas fa-user-times" data-target="#exampleModal2" data-toggle="modal" href="#" style="color: red;"></i></td>
+                            <td data-id="{{alumno.id_usuario}}"> <i (click)="eliminarUsuario(alumno.id_usuario)"  class="fas fa-user-times" data-target="#exampleModal2" data-toggle="modal" href="#" style="color: red;"></i></td>
                         </tr>
                         </tbody>
                     </table>
@@ -125,7 +125,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -159,7 +159,7 @@
 
             <div class="modal-body">
                 <div class="eliminarUsuario">
-                    <!-- coger la id del usuario que quiero eliminar -->
+                    coger la id del usuario que quiero eliminar
                     <p>¿ Estas seguro de que desea eliminar a este usuario ?</p>
                     <input class="btn btn-primary container-fluid mt-3" type="submit" value="Sí" name="Sí">
 
@@ -167,4 +167,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->

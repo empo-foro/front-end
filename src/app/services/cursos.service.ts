@@ -22,6 +22,8 @@ export class CursosService {
         return this.http.get(url, this.header);
     }
 
+
+
     getUsuariosTipoProfesores() {
         let url = this.url + `controller=Usuario&tipo=profesor`;
         return this.http.get(url, this.header);

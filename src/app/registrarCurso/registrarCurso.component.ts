@@ -73,6 +73,18 @@ export class RegistrarCursoComponent implements OnInit{
           )*/
     }
 
+    eliminarUsuario(id) {
+        this.userService.eliminarUsuario(id).subscribe(
+            (result) => {
+                console.log(result["message"]);
+            },
+
+            (error) => {
+                console.log(error);
+            }
+        );
+    }
+
     ngOnInit(): void {
         /*GET PARA OBTENER TODOS LOS CURSOS*/
         this._cursoService.getCurso()
@@ -87,11 +99,6 @@ export class RegistrarCursoComponent implements OnInit{
 
 
             )
-
-        $(document).ready(function () {
-            $('#dtBasicExample').DataTable();
-            $('.dataTables_length').addClass('bs-select');
-        });
 
         $(document).ready(function () {
             $('#dtBasicExample').DataTable();
