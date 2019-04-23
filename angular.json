@@ -24,12 +24,16 @@
             ],
             "styles": [
               "src/styles.css",
-              "../front-end/node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "../front-end/node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "../front-end/node_modules/datatables.net-dt/css/jquery.dataTables.css"
             ],
             "scripts": [
               "../front-end/node_modules/jquery/dist/jquery.min.js",
               "../front-end/node_modules/popper.js/dist/umd/popper.min.js",
-              "../front-end/node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "../front-end/node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "../front-end/node_modules/dataTables/js/jquery.dataTables.min.js",
+              "../front-end/node_modules/jquery/dist/jquery.js",
+              "../front-end/node_modules/datatables.net/js/jquery.dataTables.js"
             ]
           },
           "configurations": {

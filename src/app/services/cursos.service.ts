@@ -16,4 +16,16 @@ export class CursosService {
         let url = this.url + '?controller=curso';
         return this.http.get(url, this.header );
     }
+
+    getUsuariosTipoAlumno() {
+        let url = this.url + '?controller=Usuario&operacion=listarUsuarios&tipo=alumno';
+        return this.http.get(url, this.header);
+    }
+
+
+
+    getUsuariosTipoProfesores() {
+        let url = this.url + `controller=Usuario&tipo=profesor`;
+        return this.http.get(url, this.header);
+    }
 }

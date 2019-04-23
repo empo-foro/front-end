@@ -6,6 +6,8 @@ import { Curso } from "../model/curso.model";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import {logger} from "codelyzer/util/logger";
 import {Router} from '@angular/router';
+import * as jQuery from 'jquery';
+
 
 @Component({
     selector: 'registrar-curso',
@@ -19,12 +21,14 @@ export class RegistrarCursoComponent implements OnInit{
     user:User = new User(null, null, null, null, null, null, null, null,null);
     users = [this.user];
     cursoSeleccionado;
+    usutipoalum;
     cursos;
     curso:Curso;
     nuevoCurso:Curso;
 
     constructor( private _cursoService:CursosService, private _userService:UserService, private userService:UserService, private router: Router ) {
         this.cursos = Array<Curso>();
+        this.usutipoalum = Array<User>();
         this.curso = null;
         this.nuevoCurso = new Curso(null,null,null);
     }
@@ -69,6 +73,18 @@ export class RegistrarCursoComponent implements OnInit{
           )*/
     }
 
+    eliminarUsuario(id) {
+        this.userService.eliminarUsuario(id).subscribe(
+            (result) => {
+                console.log(result["message"]);
+            },
+
+            (error) => {
+                console.log(error);
+            }
+        );
+    }
+
     ngOnInit(): void {
         /*GET PARA OBTENER TODOS LOS CURSOS*/
         this._cursoService.getCurso()
@@ -78,6 +94,40 @@ export class RegistrarCursoComponent implements OnInit{
                     this.cursos = result['data'];
                     console.log(result);
                 }, (error) => {
+                    console.log(error);
+                }
+
+
+            )
+
+        $(document).ready(function () {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+
+        /*GET PARA OBTENER TODOS LOS USUARIOS QUE SEAN TIPO ALUMNO*/
+        this._cursoService.getUsuariosTipoAlumno()
+            .subscribe(
+                (result) => {
+                    console.log(result['data']);
+                    for(let i in result["data"]){
+                        let id_usuario = result['data'][i]['id_usuario'];
+                        let nif=result['data'][i]['nif'];
+                        let nombre=result['data'][i]['nombre'];
+                        let password=result['data'][i]['password'];
+                        let imagen_personal=result['data'][i]['imagen_personal'];
+                        let tipo=result['data'][i]['tipo'];
+                        let email=result['data'][i]['email'];
+                        let biografia=result['data'][i]['biografia'];
+                        let id_token=result['data'][i]['id_token'];
+
+                        let usuario:User=new User(id_usuario , nif, nombre, password, imagen_personal, tipo, email, biografia, id_token);
+
+                        this.usutipoalum.push(usuario);
+                    }
+
+                    console.log(this.usutipoalum);
+                    }, (error)=>{
                     console.log(error);
                 }
             )
@@ -101,7 +151,14 @@ export class RegistrarCursoComponent implements OnInit{
       }else{
         console.log("Error al iniciar sesión");
       }
-        }
+
+      $('#alumnos').DataTable({
+          "serverSide": true,
+          "ajax": "/front-end/src/php/back-end/EstructuraPHP/index2.php?controller=Usuario&operacion=listarUsuarios&tipo=alumno",
+          "searching" : true
+      });
+        $('.dataTables_length').addClass('bs-select');
+    }
 
     filesToUpload: FileList = null;
 

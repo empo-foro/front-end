@@ -78,4 +78,11 @@ export class UserService {
       let url = this.url + "?controller=";
       return this.http.post(url, data, this.header);
   }
+
+    eliminarUsuario(id) {
+        let url = this.url + '?controller=Usuario&id='+id;
+        console.log(url);
+        return this.http.delete(url, this.header);
+    }
+
 }
