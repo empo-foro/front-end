@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { mainPage } from './mainPage/mainPage.component';
 import { menuLateral } from './menuLateral/menuLateral.component';
-import { RegistroComponent } from './registrarUsuario/registroUsuario.component';
+import { RegistroComponent } from './perfilUsuario/registroUsuario.component';
 import { RegistrarCursoComponent } from './registrarCurso/registrarCurso.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';

@@ -1,5 +1,4 @@
-<main>
-    <div class="div-central">
+<div class="div-central">
         <input class="input-nif" type="text" name="nif" placeholder="NIF" [(ngModel)]="newUser.nif"><br>
         <input class="input-nombreUsuario" type="text" name="nombre" placeholder="Nombre" [(ngModel)]="newUser.nombre"><br>
         <input class="input-password" type="text" name="password" placeholder="Password" [(ngModel)]="newUser.password"><br>
@@ -8,9 +7,5 @@
         <input type="file" id="file" (change)="handleFileInput($event.target.files)">
         <input class="inputRegistroBus" type="submit" name="registro" value="Registrar" placeholder="Registro" (click)="addUser()">
         <div id="mensaje">
-
         </div>
-
-
-    </div>
-</main>
+</div>

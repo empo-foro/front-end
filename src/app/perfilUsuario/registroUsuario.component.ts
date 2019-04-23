@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Component({
     selector: 'registrar-usuario',
     templateUrl: 'registroUsuario.component.html',
-    styleUrls: ['registroUsuario.css'],
+    styleUrls: ['registroUsuario.component.css'],
     providers: [UserService]
 })
 export class RegistroComponent implements OnInit{
@@ -23,15 +23,6 @@ export class RegistroComponent implements OnInit{
     handleFileInput(files: FileList) {
         this.filesToUpload = files;
     }
-/*
-    uploadFileToActivity() {
-        this.userService.postFile(this.fileToUpload).subscribe(data => {
-            // do something, if upload success
-        }, error => {
-            console.log(error);
-        });
-    }
-*/
 
 
     addUser() {
