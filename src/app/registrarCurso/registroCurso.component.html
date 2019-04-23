@@ -28,8 +28,11 @@
                                [(ngModel)]="newUser.nombre"><br>
                         <input class="form-control form-control-sm" type="text" name="password" placeholder="Password"
                                [(ngModel)]="newUser.password"><br>
-                        <input class="form-control form-control-sm" type="text" name="tipo" placeholder="Tipo"
+                        <select class="form-control form-control-sm" type="text" name="tipo" placeholder="Tipo"
                                [(ngModel)]="newUser.tipo"><br>
+                            <option value="alumno">Alumno</option>
+                            <option value="profesor">Profesor</option>
+                        </select><br>
                         <input class="form-control form-control-sm" type="text" name="email" placeholder="Email"
                                [(ngModel)]="newUser.email"><br>
                         <div class="custom-file">
