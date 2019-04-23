@@ -18,24 +18,26 @@ export class mainPage implements OnInit {
   nuevoUsuario : User = new User(null, null, null, null, null, null, null, null, null);
   constructor(private service: UserService , private router: Router) { }
   //logged;
-  ngOnInit():void{
-    let localStorageToken=localStorage.getItem("token");
-    let localStorageTipo=localStorage.getItem("tipo");
+  ngOnInit():void {
 
-    if( localStorage != null){
-      this.service.checkToken(localStorageToken, localStorageTipo)
-        .subscribe(
-          (result)=>{
-          //  this.logged=true;
-            this.router.navigate(['registrarCurso']);
-          },(error) => {
-            this.router.navigate(['']);
-            console.log("Error al iniciar sesión");
-      });
+        let localStorageToken=localStorage.getItem("token");
+        let localStorageTipo=localStorage.getItem("tipo");
 
-    }else{
-      console.log("Error al iniciar sesión");
-    }
+        console.log(localStorageToken + " " + localStorageTipo);
+        if ( !localStorageToken || !localStorageTipo ) {
+
+        this.service.checkToken(localStorageToken, localStorageTipo)
+            .subscribe(
+                (result)=>{
+                    this.router.navigate([{ outlets: { login: ['home'], content : ['registrarCurso'] } }]);
+                },(error) => {
+                    console.log("Error en la consulta al comprobar token");
+                }
+        );
+
+        }
+
+
   }
 
   login(){
@@ -59,7 +61,7 @@ export class mainPage implements OnInit {
               localStorage.setItem("token", id_token);
               localStorage.setItem("tipo", this.nuevoUsuario.tipo);
 
-              this.router.navigate(['registrarCurso']);
+              this.router.navigate(['/home']);
 
         },
         (error) => {

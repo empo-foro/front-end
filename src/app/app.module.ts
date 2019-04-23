@@ -2,17 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AlertModule } from 'ngx-bootstrap';
 
+import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+/* Componentes */
+
 import { mainPage } from './mainPage/mainPage.component';
 import { menuLateral } from './menuLateral/menuLateral.component';
 import { RegistroComponent } from './registrarUsuario/registroUsuario.component';
 import { RegistrarCursoComponent } from './registrarCurso/registrarCurso.component';
-import { HttpClientModule } from '@angular/common/http';
-
-import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app.routing';
 import { CursosComponentComponent } from './cursos-component/cursos-component.component';
 
+/* Imports para las rutas */
+
+import { AppRoutingModule } from './app.routing';
+import { routing, appRoutingProviders } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -28,9 +33,12 @@ import { CursosComponentComponent } from './cursos-component/cursos-component.co
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    routing,
       AlertModule.forRoot()
   ],
-  providers: [],
+  providers: [
+      appRoutingProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

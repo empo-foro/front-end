@@ -6,15 +6,16 @@ import {Router} from '@angular/router';
     templateUrl:"./menuLateral.component.html",
     styleUrls:["./menuLateral.component.css"]
 })
-export class menuLateral implements OnInit{
-    openHamburguer=false;
-    constructor(private service: UserService , private router: Router) { }
+export class menuLateral implements OnInit {
+
+  openHamburguer=false;
   logged;
+  constructor(private service: UserService , private router: Router) { }
+
   ngOnInit():void{
-    let localStorageToken=localStorage.getItem("token");
-    let localStorageTipo=localStorage.getItem("tipo");
 
-
+    let localStorageToken = localStorage.getItem( "token" );
+    let localStorageTipo = localStorage.getItem( "tipo" );
 
     this.service.getAsignaturasUsuario(localStorageToken, localStorageTipo)
       .subscribe(
@@ -23,15 +24,18 @@ export class menuLateral implements OnInit{
         },(error) => {
 
         });
+
   }
 
-clickOpenHamburguer(){
-  this.openHamburguer=!this.openHamburguer;
-}
+  clickOpenHamburguer(){
+      this.openHamburguer=!this.openHamburguer;
+  }
 
   logOut(){
-    let localStorageToken = localStorage.getItem("token");
-    let localStorageTipo = localStorage.getItem("tipo");
+
+    let localStorageToken = localStorage.getItem( "token" );
+    let localStorageTipo = localStorage.getItem( "tipo" );
+
     this.service.logOut(localStorageToken, localStorageTipo)
       .subscribe(
         (result)=>{
@@ -44,6 +48,5 @@ clickOpenHamburguer(){
         });
 
   }
-
 
 }
