@@ -5,8 +5,8 @@ export class Post {
   fecha:string="";
   cerrado:boolean=null;
   id_alumno:number=null;
-
-  constructor (id_post:number, titulo:string, cuerpo:string, fecha:string, cerrado:boolean, id_alumno:number) {
+  id_asignatura:number=null;
+  constructor (id_post:number, titulo:string, cuerpo:string, fecha:string, cerrado:boolean, id_alumno:number, id_asignatura:number) {
     this.id_post=id_post;
     this.titulo = titulo;
     this.cuerpo=cuerpo;
