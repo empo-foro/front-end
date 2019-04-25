@@ -7,28 +7,21 @@ import { User } from '../model/user.model';
   providedIn: 'root'
 })
 
-export class asignaturaService {
-  constructor(private http: HttpClient) {
-  }
+export class postsService {
+  constructor(private http: HttpClient) {  }
 
   header = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
   headerFiles = {headers: new HttpHeaders({'enctype': 'multipart/form-data'})};
 
   url = '/front-end/src/php/back-end/EstructuraPHP/index2.php';
 
-
-getAsignaturas() {
-    let url = this.url + '?controller=asignatura';
-    return this.http.get(url, this.header );
+  getListadoPosts(id_asignatura){
+    let url = this.url + "?controller=post&operacion=asignaturaPost&id="+id_asignatura;
+    return this.http.get(url, this.header);
   }
 
-  getAsignaturasUsuario(token,tipo){
-    var data = {
-      "id_token":token,
-      "tipo": tipo
-    }
-    let url = this.url + "?controller="+tipo+"&operacion=getAsignaturas";
-    return this.http.post(url, data, this.header);
+  getPostById(id_post){
+    let url = this.url + "?controller=post&id_post="+id_post;
+    return this.http.get(url, this.header);
   }
-
 }

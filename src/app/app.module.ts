@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app.routing';
 import { CursosComponentComponent } from './cursos-component/cursos-component.component';
+import { ListadoPostComponent } from './listado-post/listado-post.component';
+import { VistaPostComponent } from './vista-post/vista-post.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { CursosComponentComponent } from './cursos-component/cursos-component.co
     mainPage,
     CursosComponentComponent,
     RegistroComponent,
-    RegistrarCursoComponent
+    RegistrarCursoComponent,
+    ListadoPostComponent,
+    VistaPostComponent
   ],
   imports: [
     BrowserModule,

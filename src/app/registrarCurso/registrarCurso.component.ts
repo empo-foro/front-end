@@ -90,9 +90,7 @@ export class RegistrarCursoComponent implements OnInit{
         this._cursoService.getCurso()
             .subscribe(
                 (result) => {
-                    console.log(result);
                     this.cursos = result['data'];
-                    console.log(result);
                 }, (error) => {
                     console.log(error);
                 }
@@ -182,10 +180,9 @@ export class RegistrarCursoComponent implements OnInit{
 
         this._userService.addUsers(formData).subscribe(
             (result) => {
-                console.log(result);
             },
             (error) => {
-                console.log(error);
+
             }
         );
 
