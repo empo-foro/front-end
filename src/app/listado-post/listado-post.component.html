@@ -1,0 +1,6 @@
+<div *ngFor="let post of listadoposts" class="post-border">
+  <a style="text-decoration: none; color:black" [routerLink]="['//post/', post.id_post]">
+    <h1>{{post.titulo}}</h1>
+  </a>
+  <p>{{post.cuerpo}}</p>
+</div>
