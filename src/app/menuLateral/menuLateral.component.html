@@ -18,44 +18,9 @@
     </div>
   </div>
 
-  <div class="wrapper">
+  <div class="wrapper" style="align-items: stretch">
 
-    <!-- Menú lateral con las opciones de administración -->
-    <nav class="sidebar">
-
-      <ul class="collapse list-unstyled">
-
-        <p>Opciones de administración</p>
-
-        <li class="active">
-          <a href="registroUsuario" data-toggle="collapse" aria-expanded="false">Gestión de usuarios</a>
-        </li>
-        <li>
-          <a href="registrarCurso" data-toggle="collapse" aria-expanded="false">Gestión de cursos y asignaturas</a>
-        </li>
-
-        <li><a href="#">Gestion ...</a></li>
-        <li><a href="#">Gestion ...</a></li>
-        <li><a href="#">Gestion ...</a></li>
-        <li><a href="#">Gestion ...</a></li>
-
-      </ul>
-
-    </nav>
-
-    <!-- Componentes para la administración de la página -->
-    <div class="content">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-
-          <button type="button" id="sidebarCollapse" class="btn btn-info">
-            <i class="fas fa-align-left"></i>
-            <span>Toggle Sidebar</span>
-          </button>
-
-        </div>
-      </nav>
-    </div>
+    <router-outlet name="home"></router-outlet>
 
   </div>
 

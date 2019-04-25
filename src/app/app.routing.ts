@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {menuLateral} from './menuLateral/menuLateral.component';
 import {mainPage} from './mainPage/mainPage.component';
 import {RegistrarCursoComponent} from './registrarCurso/registrarCurso.component';
-import {RegistroComponent} from './registrarUsuario/registroUsuario.component';
+import {RegistroComponent} from './perfilUsuario/registroUsuario.component';
 
 /* Rutas */
 const appRoutes: Routes = [
@@ -25,6 +25,10 @@ const appRoutes: Routes = [
           component: RegistroComponent
         }
     ]
+  },{
+    path : 'home',
+    component : RegistrarCursoComponent,
+    outlet : 'home'
   }
 ];
 
