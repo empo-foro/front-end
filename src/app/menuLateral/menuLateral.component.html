@@ -14,7 +14,9 @@
 
   <div class="row">
     <div *ngIf="openHamburguer" class="col-2 barra-lateral bg-light" style="position: absolute; top:60px;">
-      <a>Home</a>
+      <div *ngFor="let asignatura of asignaturas" class="row">
+        <a [routerLink]="['postsListado/', asignatura.id_asignatura]">{{asignatura.nombre}}</a>
+      </div>
     </div>
   </div>
 

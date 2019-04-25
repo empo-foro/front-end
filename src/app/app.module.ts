@@ -14,6 +14,8 @@ import { RegistroComponent } from './perfilUsuario/registroUsuario.component';
 import { RegistrarCursoComponent } from './registrarCurso/registrarCurso.component';
 import { DataTablesModule } from 'angular-datatables';
 import { CursosComponentComponent } from './cursos-component/cursos-component.component';
+import { ListadoPostComponent } from './listado-post/listado-post.component';
+import { VistaPostComponent } from './vista-post/vista-post.component';
 
 /* Imports para las rutas */
 
@@ -27,7 +29,9 @@ import { routing, appRoutingProviders } from './app.routing';
     mainPage,
     CursosComponentComponent,
     RegistroComponent,
-    RegistrarCursoComponent
+    RegistrarCursoComponent,
+    ListadoPostComponent,
+    VistaPostComponent
   ],
   imports: [
     BrowserModule,
