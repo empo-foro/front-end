@@ -29,7 +29,7 @@ export class ListadoPostComponent implements OnInit {
           .subscribe(
             (result)=>{this.listadoposts=[];
              for(var i in result.data){
-                let id_post=result.data[i].id_post
+              /*  let id_post=result.data[i].id_post
                 let titulo = result.data[i].titulo;
                 let cuerpo = result.data[i].cuerpo;
                 let fecha = result.data[i].fecha;
@@ -37,7 +37,7 @@ export class ListadoPostComponent implements OnInit {
                 let id_alumno = result.data[i].id_alumno;
                 let id_asignatura = result.data[i].id_asignatura;
                 let post:Post = new Post(id_post, titulo, cuerpo, fecha, cerrado, id_alumno,id_asignatura);
-                this.listadoposts.push(post)
+                this.listadoposts.push(post)*/
               }
             },(error)=>{
 

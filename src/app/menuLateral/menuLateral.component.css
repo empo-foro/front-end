@@ -1,47 +1,32 @@
 .barra-superior {
-  background-color: #76cad4;
-  height: 60px;
-  box-shadow: 2px 2px 5px grey; }
-  .barra-superior .img-barra-superior {
+    background-color: #76cad4;
+    color:white;
+    height: 50px;
+}
+.barra-superior .img-barra-superior {
     border: solid black 2px;
-    border-radius: 100px; }
+    border-radius: 100px;
+}
 
 .barra-lateral {
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-  padding: 1rem !important;
-  border: 0 solid white !important;
-  border-radius: 0%;
-  height: 700px;
-  z-index: 3; }
-
-.cursor-pointer {
-  cursor: pointer;
+    background-color: #76cad4;
+    position: absolute;
+    z-index: 999;
+    height: 100%;
+    width: 320px;
 }
 
-a[data-toggle="collapse"] {
-  position: relative;
+.icon-bar {
+    font-size: 1.2em;
+    color: #FFFFFF;
 }
 
-.dropdown-toggle::after {
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
+.item-list {
+    min-height: 30px;
 }
 
-.wrapper {
-  display: flex;
-  width: 100%;
-  align-items: stretch;
-}
-
-#sidebar {
-  min-width: 250px;
-  max-width: 250px;
-}
-
-#sidebar.active {
-  margin-left: -250px;
+a {
+    text-decoration: none;
+    color: white;
 }
 /*# sourceMappingURL=menuLateral.component.css.map */

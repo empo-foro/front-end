@@ -14,6 +14,8 @@ import {RegistroComponent} from './perfilUsuario/registroUsuario.component';
 const appRoutes: Routes = [
 
   { path : '', component: mainPage},
+  { path : 'home', component: menuLateral },
+
   { path : 'registrarCurso', component: RegistrarCursoComponent},
   { path: 'postsListado/:id_asignatura', component: ListadoPostComponent},
   { path : 'post/:id_post', component: VistaPostComponent }

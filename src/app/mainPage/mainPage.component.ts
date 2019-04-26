@@ -29,7 +29,7 @@ export class mainPage implements OnInit {
         this.service.checkToken(localStorageToken, localStorageTipo)
             .subscribe(
                 (result)=>{
-                    this.router.navigate([{ outlets: { login: ['home'], content : ['registrarCurso'] } }]);
+                    this.router.navigate(['registrarCurso']);
                 },(error) => {
                     console.log("Error en la consulta al comprobar token");
                 }
@@ -61,7 +61,7 @@ export class mainPage implements OnInit {
               localStorage.setItem("token", id_token);
               localStorage.setItem("tipo", this.nuevoUsuario.tipo);
 
-              this.router.navigate(['/home']);
+              this.router.navigate(['registrarCurso']);
 
         },
         (error) => {
