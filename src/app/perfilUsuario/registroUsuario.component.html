@@ -1,11 +1,46 @@
-<div class="div-central">
-        <input class="input-nif" type="text" name="nif" placeholder="NIF" [(ngModel)]="newUser.nif"><br>
-        <input class="input-nombreUsuario" type="text" name="nombre" placeholder="Nombre" [(ngModel)]="newUser.nombre"><br>
-        <input class="input-password" type="text" name="password" placeholder="Password" [(ngModel)]="newUser.password"><br>
-        <input class="input-tipoUsuario" type="text" name="tipo" placeholder="Tipo" [(ngModel)]="newUser.tipo"><br>
-        <input class="input.email" type="text" name="email" placeholder="Email" [(ngModel)]="newUser.email"><br>
-        <input type="file" id="file" (change)="handleFileInput($event.target.files)">
-        <input class="inputRegistroBus" type="submit" name="registro" value="Registrar" placeholder="Registro" (click)="addUser()">
-        <div id="mensaje">
+<div class="container">
+        <div class="row h-100">
+            <div class="col-2 mt-5" style="height: 200px;">
+                <img width="180px" height="auto" class="rounded-circle" src="http://localhost/front-end/src/app/perfilUsuario/img/marc.jpg" alt="foto">
+            </div>
+
+            <div class="col-6">
+                <div class="mt-3 border border" style="background-color:whitesmoke; height: 50px;" >
+                    <p>Nombre Usuario:</p>
+                </div>
+
+                <div class="mt-2 border border" style="background-color:whitesmoke; height: 200px;" >
+                    <p>Descripción:</p>
+                </div>
+            </div>
+
+            <div class="col-4 mt-3 border border" style="background-color:whitesmoke; height: 258px;">
+                <p>Estadísticas Numéricas:</p>
+            </div>
+        </div>
+
+        <div class="row h-100">
+
+            <!--<div class="col-2 mt-4" style="background-color:whitesmoke; height: 320px;">
+                <p>Asignaturas:</p>
+            </div>-->
+
+            <div class="col-6">
+                <div class="col-12 mt-4 border border" style="background-color:whitesmoke; height: 320px;" >
+                    <p>Posts:</p>
+                </div>
+            </div>
+
+            <div class=" col-6 mt-4 border border" style="background-color:whitesmoke; height: 320px;" >
+                <p>Respuestas:</p>
+            </div>
+        </div>
+
+        <div class="row h-100">
+
+            <div class="col-12 mt-3 border border" style="background-color:whitesmoke; height: 150px;" >
+                <p>Guardados:</p>
+            </div>
+
         </div>
 </div>
