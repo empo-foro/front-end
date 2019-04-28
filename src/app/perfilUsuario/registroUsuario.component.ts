@@ -42,13 +42,5 @@ export class RegistroComponent implements OnInit{
                 console.log(error);
             }
         );
-      /*  this.userService.addUser(this.newUser).subscribe(
-            (result) => {
-                console.log(result.message);
-            },
-            (error) => {
-                console.log(error);
-            }
-        )*/
     }
 }

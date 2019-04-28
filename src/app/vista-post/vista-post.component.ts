@@ -22,8 +22,8 @@ export class VistaPostComponent implements OnInit {
   ngOnInit() {
     this._activRoute.params.forEach(
       (arrayParams: Params) => {
-        this.id_post = arrayParams["id_post"];
-        this.postService.getPostById(this.id_post)
+        this["id_post"] = arrayParams["id_post"];
+        this.postService.getPostById(this["id_post"])
           .subscribe(
             (result)=>{
 
@@ -33,10 +33,10 @@ export class VistaPostComponent implements OnInit {
               this.fecha = result.data.fecha;
               this.cerrado = result.data.cerrado;
               this.id_alumno = result.data.id_alumno;
-              this.id_asignatura = result.data.id_asignatura;*/
+              this.id_asignatura = result.data.id_asignatura;
 
               let post:Post = new Post(id, titulo, cuerpo, fecha, cerrado, id_alumno,id_asignatura);
-
+               */
             },(error)=>{
 
             }

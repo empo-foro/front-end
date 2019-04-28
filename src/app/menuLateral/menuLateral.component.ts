@@ -47,11 +47,11 @@ export class menuLateral implements OnInit {
     .subscribe(
       (result)=>{
 
-        for(var i in result.data) {
+        for(let i in result["data"]) {
 
-          let id=result.data[i].id_asignatura
-          let nombre = result.data[i].nombre;
-          let id_curso = result.data[i].id_curso;
+          let id = result["data"][i]["id_asignatura"];
+          let nombre = result["data"][i]["nombre"];
+          let id_curso = result["data"][i]["id_curso"];
           let asignatura:Asignatura = new Asignatura(id, nombre, id_curso);
           this.asignaturas.push(asignatura);
 

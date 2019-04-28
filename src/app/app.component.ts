@@ -16,7 +16,7 @@ export class AppComponent implements OnInit{
         (result)=>{
           console.log("logedd")
           this.logged=true;
-          this.router.navigate(['registrarCurso']);
+          this.router.navigate(['control-panel']);
         },(error) => {
           console.log("no logedd")
           this.logged=false;
