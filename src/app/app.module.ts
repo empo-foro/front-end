@@ -14,6 +14,7 @@ import {DataTablesModule} from 'angular-datatables';
 import {CursosComponentComponent} from './cursos-component/cursos-component.component';
 import {ListadoPostComponent} from './listado-post/listado-post.component';
 import {VistaPostComponent} from './vista-post/vista-post.component';
+import { PaginaPricipalComponent } from './pagina-pricipal/pagina-pricipal.component';
 
 /* Imports para las rutas */
 import {AppRoutingModule} from './app.routing';
@@ -47,7 +48,8 @@ const notifierDefaultOptions: NotifierOptions = {
         RegistroComponent,
         ControlPanelComponent,
         ListadoPostComponent,
-        VistaPostComponent
+        VistaPostComponent,
+        PaginaPricipalComponent
     ],
     imports: [
         BrowserModule,
