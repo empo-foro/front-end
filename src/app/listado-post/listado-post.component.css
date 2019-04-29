@@ -1,6 +1,6 @@
 .post-border{
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   padding: 1rem !important;
-  border: 0 solid white !important;
+  border: 0px solid white !important;
   border-radius: 0%;
 }
