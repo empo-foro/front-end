@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app.routing';
 import { CursosComponentComponent } from './cursos-component/cursos-component.component';
 import { ListadoPostComponent } from './listado-post/listado-post.component';
 import { VistaPostComponent } from './vista-post/vista-post.component';
+import { PaginaPricipalComponent } from './pagina-pricipal/pagina-pricipal.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { VistaPostComponent } from './vista-post/vista-post.component';
     RegistroComponent,
     RegistrarCursoComponent,
     ListadoPostComponent,
-    VistaPostComponent
+    VistaPostComponent,
+    PaginaPricipalComponent
   ],
   imports: [
     BrowserModule,
