@@ -27,8 +27,9 @@ export class ListadoPostComponent implements OnInit {
 
         this.postService.getListadoPosts(this.id_asignatura)
           .subscribe(
-            (result)=>{this.listadoposts=[];
-             for(var i in result.data){
+            (result) => {
+               /* this.listadoposts=[];
+                for(let i in result.data){
                 let id_post=result.data[i].id_post
                 let titulo = result.data[i].titulo;
                 let cuerpo = result.data[i].cuerpo;
@@ -38,12 +39,12 @@ export class ListadoPostComponent implements OnInit {
                 let id_asignatura = result.data[i].id_asignatura;
                 let post:Post = new Post(id_post, titulo, cuerpo, fecha, cerrado, id_alumno,id_asignatura);
                 this.listadoposts.push(post)
-              }
-            },(error)=>{
+              }*/
+            }, (error) => {
 
             }
-          )
-      })
+          );
+      });
   }
 
 

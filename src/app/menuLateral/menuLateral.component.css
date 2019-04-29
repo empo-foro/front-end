@@ -1,20 +1,32 @@
 .barra-superior {
-  background-color: #76cad4;
-  height: 60px;
-  box-shadow: 2px 2px 5px grey; }
-  .barra-superior .img-barra-superior {
+    background-color: #76cad4;
+    color:white;
+    height: 50px;
+}
+.barra-superior .img-barra-superior {
     border: solid black 2px;
-    border-radius: 100px; }
+    border-radius: 100px;
+}
 
 .barra-lateral {
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-  padding: 1rem !important;
-  border: 0 solid white !important;
-  border-radius: 0%;
-  height: 700px;
-  z-index: 3; }
+    background-color: #76cad4;
+    position: absolute;
+    z-index: 999;
+    height: 100%;
+    width: 320px;
+}
 
-.cursor-pointer {
-  cursor: pointer; }
+.icon-bar {
+    font-size: 1.2em;
+    color: #FFFFFF;
+}
 
+.item-list {
+    min-height: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
 /*# sourceMappingURL=menuLateral.component.css.map */

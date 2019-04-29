@@ -28,8 +28,8 @@ export class UserService {
         let url = "?controller=usuario&operacion=registro-usuarios";
         return this.http.post(this.url + url, data, this.headerFiles);
     }
-    /*addUser(user: User):Observable<any> {
-        return this.http.post(this.url + "?controller=usuario", user , this.header );
+    /*addUser(usuario: User):Observable<any> {
+        return this.http.post(this.url + "?controller=usuario", usuario , this.header );
     }*/
     addUser(user):Observable<any> {
         let url = "?controller=usuario"
