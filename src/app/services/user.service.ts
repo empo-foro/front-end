@@ -62,9 +62,9 @@ export class UserService {
       let url = this.url + "?controller="+tipo+"&operacion=checkToken";
       return this.http.post( url, data, this.header);
     }
-  userData(id_token){
-      let url = this.url+ "?controller=Usuario&operacion=getUserData&id_token='"+id_token+"'";
-    return this.http.get( url, this.header);
+    getUsuarioByToken(id_token){
+      let url = this.url+ "?controller=Usuario&operacion=getUsuarioByToken&id_token="+id_token+"";
+      return this.http.get( url, this.header);
   }
   logOut(id_token, tipo){
     let url = this.url + "?controller="+tipo+"&operacion=logOut&id_token="+id_token;
@@ -85,5 +85,13 @@ export class UserService {
         console.log(url);
         return this.http.delete(url, this.header);
     }
+
+    getInfoUsuario(id) {
+        let url = this.url + '?controller=Usuario&id='+id;
+        console.log(url);
+        return this.http.get(url, this.header);
+    }
+
+
 
 }
