@@ -18,18 +18,17 @@ import * as jQuery from 'jquery';
 
 export class ControlPanelComponent implements OnInit {
 
-    nuevoUsuario: User = new User(null, null, null, null, null, null, null, null, null);
+    nuevoUsuario: User = new User(null, null, null, null, null, "Alumno", null, null, null);
     usuario: User = new User(null, null, null, null, null, null, null, null, null);
     cursoSeleccionado;
     usuarios;
     cursos;
-    curso: Curso;
+    curso;
     nuevoCurso: Curso;
 
     constructor(private _cursoService: CursosService, private _userService: UserService, private userService: UserService, private router: Router) {
         this.cursos = Array<Curso>();
         this.usuarios = Array<User>();
-        this.curso = null;
         this.nuevoCurso = new Curso(null, null, null);
     }
 
@@ -39,11 +38,28 @@ export class ControlPanelComponent implements OnInit {
         this.archivos = files;
     }
 
-    addUser2() {
+    addUsuario() {
 
-        this.userService.addUser(this.nuevoUsuario).subscribe(
+        var data = new Array();
+
+        if(this.nuevoUsuario.tipo === "Alumno") {
+
+            data.push(this.nuevoUsuario);
+            let aux = {"id_curso":this.curso};
+            data.push(aux);
+
+        } else {
+
+            var data = [ this.nuevoUsuario ];
+
+        }
+
+        console.log(data);
+        this.userService.addUser(data).subscribe(
             (result) => {
+
                 console.log(result.message);
+
             },
             (error) => {
                 console.log(error);
@@ -65,7 +81,8 @@ export class ControlPanelComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        /*GET PARA OBTENER TODOS LOS CURSOS*/
+
+        /* Consulta que nos devuelve todos los cursos de la base de datos */
         this._cursoService.getCurso()
             .subscribe(
                 (result) => {

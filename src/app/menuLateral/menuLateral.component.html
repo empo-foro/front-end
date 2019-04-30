@@ -17,7 +17,7 @@
 
       <div *ngIf="openHamburguer" class="barra-lateral">
         <div *ngFor="let asignatura of asignaturas" class="col item-list">
-            <a [routerLink]="['postsListado/', asignatura.id_asignatura/ post.id_post]">{{asignatura.nombre}}</a>
+            <a [routerLink]="['postsListado/', asignatura.id_asignatura/post.id_post]">{{asignatura.nombre}}</a>
         </div>
       </div>
 

@@ -38,16 +38,27 @@
                 <div class="col">
                     <select class="form-control" type="text" name="tipo" placeholder="Tipo"
                             [(ngModel)]="nuevoUsuario.tipo">
-                        <option value="alumno">Alumno</option>
-                        <option value="profesor">Profesor</option>
+                        <option value="Alumno">Alumno</option>
+                        <option value="Profesor">Profesor</option>
                     </select>
                 </div>
             </div>
+
+            <div class="row" *ngIf="nuevoUsuario.tipo == 'Alumno'">
+                <div class="col">
+                    <select  [(ngModel)]="curso" class="form-control" name="curso">
+                        <option *ngFor="let curso of cursos" value="{{curso.id_curso}}">
+                            {{ curso.nombre }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col">
                     <input class="btn btn-primary btn-block" type="submit" name="registro" value="Registrar"
                            placeholder="Registro"
-                           (click)="addUser2()">
+                           (click)="addUsuario()">
                 </div>
             </div>
         </div>

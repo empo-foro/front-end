@@ -28,12 +28,10 @@ export class UserService {
         let url = "?controller=usuario&operacion=registro-usuarios";
         return this.http.post(this.url + url, data, this.headerFiles);
     }
-    /*addUser(usuario: User):Observable<any> {
-        return this.http.post(this.url + "?controller=usuario", usuario , this.header );
-    }*/
-    addUser(user):Observable<any> {
-        let url = "?controller=usuario"
-        return this.http.post(this.url + url, user , this.header );
+
+    addUser(data):Observable<any> {
+        let url = "?controller=Usuario&operacion=registroUsuario";
+        return this.http.post(this.url + url, data , this.header );
     }
 
     updateUser( numUser: number , user: User ) {
