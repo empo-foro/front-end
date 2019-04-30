@@ -15,19 +15,36 @@ export class RegistroComponent implements OnInit{
     user:User = new User(null, null, null, null, null, null, null, null,null);
     users = [this.user];
     constructor(private userService:UserService) {}
+    nombre=" ";
+    biografia = " ";
     ngOnInit(): void {
       let localStorageToken=localStorage.getItem("token");
       let localStorageTipo=localStorage.getItem("tipo");
 
-      this.userService.userData(localStorageToken)
+      this.userService.getUsuarioByToken(localStorageToken)
         .subscribe(
           (result)=>{
-            console.log(result["data"])
+              this.nombre = result["data"][0]["nombre"];
+              this.biografia = result["data"][0]["biografia"]
+              console.log(this.nombre)
+              console.log(result);
           },(error)=>{
-
+              console.log(error);
           }
         )
+
+        this.userService.getPostByUserToken(localStorageToken)
+            .subscribe(
+                (result)=>{
+                    console.log(result["data"]);
+                },(error)=>{
+                    console.log(error);
+                }
+            )
     }
+
+
+
     filesToUpload: FileList = null;
 
     handleFileInput(files: FileList) {
@@ -53,4 +70,7 @@ export class RegistroComponent implements OnInit{
             }
         );
     }
+
+
+
 }
