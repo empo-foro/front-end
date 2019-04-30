@@ -17,7 +17,8 @@ const appRoutes: Routes = [
     {path: 'home', component: RegistroComponent},
     {path: 'control-panel', component: ControlPanelComponent},
     {path: 'postsListado/:id_asignatura', component: ListadoPostComponent},
-    {path: 'post/:id_post', component: VistaPostComponent}
+    {path: 'post/:id_post', component: VistaPostComponent},
+    {path: 'user-profile', component: RegistroComponent},
 
 ];
 

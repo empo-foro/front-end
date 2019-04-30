@@ -16,7 +16,17 @@ export class RegistroComponent implements OnInit{
     users = [this.user];
     constructor(private userService:UserService) {}
     ngOnInit(): void {
+      let localStorageToken=localStorage.getItem("token");
+      let localStorageTipo=localStorage.getItem("tipo");
 
+      this.userService.userData(localStorageToken)
+        .subscribe(
+          (result)=>{
+            console.log(result["data"])
+          },(error)=>{
+
+          }
+        )
     }
     filesToUpload: FileList = null;
 

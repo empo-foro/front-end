@@ -65,6 +65,7 @@ export class menuLateral implements OnInit {
 
     }
 
+
     /* Método con el que cerramos sesión*/
     logOut(){
 

@@ -21,7 +21,7 @@ export class postsService {
   }
 
   getPostById(id_post){
-    let url = this.url + "?controller=post&id_post="+id_post;
+    let url = this.url + "?controller=Post&id="+id_post;
     return this.http.get(url, this.header);
   }
 }

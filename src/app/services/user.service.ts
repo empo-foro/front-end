@@ -64,7 +64,10 @@ export class UserService {
       let url = this.url + "?controller="+tipo+"&operacion=checkToken";
       return this.http.post( url, data, this.header);
     }
-
+  userData(id_token){
+      let url = this.url+ "?controller=Usuario&operacion=getUserData&id_token='"+id_token+"'";
+    return this.http.get( url, this.header);
+  }
   logOut(id_token, tipo){
     let url = this.url + "?controller="+tipo+"&operacion=logOut&id_token="+id_token;
     return this.http.get(url, this.header);
