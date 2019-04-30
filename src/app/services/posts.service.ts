@@ -24,4 +24,9 @@ export class postsService {
     let url = this.url + "?controller=Post&id="+id_post;
     return this.http.get(url, this.header);
   }
+
+  getPostByUserToken(id_token){
+    let url = this.url + '?controller=Post&operacion=getPostByUserToken&id_token='+id_token;
+    return this.http.get(url, this.header);
+  }
 }
