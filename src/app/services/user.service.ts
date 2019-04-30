@@ -93,10 +93,7 @@ export class UserService {
         console.log(url);
         return this.http.get(url, this.header);
     }
-    getPostByUserToken(id_token){
-        let url = this.url + '?controller=Usuario&operacion=getPostByUserToken&id_token='+id_token;
-        return this.http.get(url, this.header);
-    }
+
 
 
 }

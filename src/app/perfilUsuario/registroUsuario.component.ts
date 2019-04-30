@@ -2,19 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from "../services/user.service";
 import { User } from "../model/user.model";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {postsService} from '../services/posts.service';
 
 @Component({
     selector: 'registrar-usuario',
     templateUrl: 'registroUsuario.component.html',
     styleUrls: ['registroUsuario.component.css'],
-    providers: [UserService]
+    providers: [UserService,postsService]
 })
 export class RegistroComponent implements OnInit{
 
     newUser:User = new User(null, null, null, null, null, null, null, null,null);
     user:User = new User(null, null, null, null, null, null, null, null,null);
     users = [this.user];
-    constructor(private userService:UserService) {}
+    constructor(private userService:UserService, private postService:postsService) {}
     nombre=" ";
     biografia = " ";
     ngOnInit(): void {
@@ -33,14 +34,15 @@ export class RegistroComponent implements OnInit{
           }
         )
 
-        this.userService.getPostByUserToken(localStorageToken)
+        this.postService.getPostByUserToken(localStorageToken)
             .subscribe(
                 (result)=>{
-                    console.log(result["data"]);
+                    console.log("posts");
+                    console.log(result);
                 },(error)=>{
                     console.log(error);
                 }
-            )
+            );
     }
 
 
