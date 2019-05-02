@@ -5,20 +5,30 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import {Asignatura} from '../model/asignatura.model';
 import {Post} from '../model/post.model';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-listado-post',
   templateUrl: './listado-post.component.html',
   styleUrls: ['./listado-post.component.css']
 })
+
 export class ListadoPostComponent implements OnInit {
 
-  constructor(private postService: postsService, private _router: Router, private _activRoute: ActivatedRoute) { }
+  constructor(private userService: UserService ,private postService: postsService, private _router: Router, private _activRoute: ActivatedRoute) { }
   id_asignatura;
   listadoposts = [];
-
+  nombreUsuario= "";
   ngOnInit() {
+    let localStorageToken = localStorage.getItem( "token" );
+  this.userService.getUsuarioByToken(localStorageToken)
+    .subscribe(
+      (result)=>{
 
+      },(error)=>{
+
+      }
+    )
     this._activRoute.params.forEach(
       (arrayParams: Params) => {
         console.dir(arrayParams);

@@ -1,6 +1,14 @@
-<div *ngFor="let post of listadoposts" class="post-border">
-  <a style="text-decoration: none; color:black" [routerLink]="['//post/', post.id_post]">
-    <h1>{{post.titulo}}</h1>
-  </a>
-  <p>{{post.cuerpo}}</p>
+
+<div class="card-columns mt-3 ml-3 mr-3">
+  <div class="card" *ngFor="let post of listadoposts">
+    <div class="card-body">
+      <h5 class="card-title"><a style="text-decoration: none; color:black" [routerLink]="['//post/', post.id_post]">
+        <h1>{{post.titulo}}</h1>
+      </a></h5>
+      <p class="card-text">{{post.cuerpo}}</p>
+      <p class="card-text"><small class="text-muted">{{n}}</small></p>
+    </div>
+  </div>
 </div>
+<button class="rounded-circle btn btn-primary mr-5" style="z-index: 3; position:fixed; right: 5px;"><i class="fas fa-plus"></i></button>
+
