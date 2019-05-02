@@ -1,17 +1,18 @@
 export class Post {
-  id_post:number = null;
+  id_post:string = "";
   titulo:string = "";
   cuerpo:string = "";
   fecha:string="";
-  cerrado:boolean=null;
-  id_alumno:number=null;
-  id_asignatura:number=null;
-  constructor (id_post:number, titulo:string, cuerpo:string, fecha:string, cerrado:boolean, id_alumno:number, id_asignatura:number) {
+  cerrado:string="";
+  id_alumno:string="";
+  id_asignatura:string="";
+  constructor (id_post:string, titulo:string, cuerpo:string, fecha:string, cerrado:string, id_alumno:string, id_asignatura:string) {
     this.id_post=id_post;
     this.titulo = titulo;
     this.cuerpo=cuerpo;
     this.fecha=fecha;
     this.cerrado=cerrado;
     this.id_alumno=id_alumno;
+    this.id_asignatura
   }
 }
