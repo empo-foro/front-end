@@ -32,26 +32,3 @@ export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
 
 export class AppRoutingModule {
 }
-
-/*
-{ path : '',
-    component: mainPage
-  },
-  { path : 'home',
-    component: menuLateral,
-    children:
-    [
-        {
-          path : 'control-panel',
-          component: ControlPanelComponent
-        },
-        { path: 'registroUsuario',
-          component: RegistroComponent
-        }
-    ]
-  },{
-    path : 'home',
-    component : ControlPanelComponent,
-    outlet : 'home'
-  }
- */
