@@ -9,6 +9,7 @@ import {Post} from '../model/post.model';
   styleUrls: ['./vista-post.component.css']
 })
 export class VistaPostComponent implements OnInit {
+  id_post="";
   id="";
   titulo=" ";
   cuerpo=" ";
@@ -36,7 +37,7 @@ export class VistaPostComponent implements OnInit {
               this.id_alumno = result["data"]["id_alumno"];
               this.id_asignatura = result["data"]["id_asignatura"];
               console.log(this.titulo)
-             // let post:Post = new Post(id, titulo, cuerpo, fecha, cerrado, id_alumno, id_asignatura);
+              let post:Post = new Post(this.id, this.titulo, this.cuerpo, this.fecha, this.cerrado, this.id_alumno, this.id_asignatura);
 
             },(error)=>{
 

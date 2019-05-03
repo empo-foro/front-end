@@ -7,17 +7,25 @@
       <div class="col my-auto">
         <button class="btn float-left" (click)="clickOpenHamburguer()"> <i  class="icon-bar fas fa-bars"></i> </button>
       </div>
+
       <div class="col my-auto">
         <button (click)="logOut()" class="btn float-right"> <i class="icon-bar fas fa-sign-out-alt"></i> </button>
-        <button class="btn float-right" [routerLink]="['//user-profile/']"> <i class="icon-bar fas fa-user"></i> </button>
+        <button class="btn float-right " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="icon-bar fas fa-user"></i> </button>
+        <!--[routerLink]="['//user-profile/']"-->
+        <div class="dropdown-menu">
+          <span class="dropdown-item-text" style="color:black;">Opciones de usuario</span>
+
+          <a class="dropdown-item" style="color:black;" [routerLink]="['//user-profile/']">Perfil</a>
+            <a class="dropdown-item" style="color:black;" href="#">Editar perfil</a>
+        </div>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row ">
 
-      <div *ngIf="openHamburguer" class="barra-lateral">
+      <div *ngIf="openHamburguer" class="barra-lateral dropdown">
         <div *ngFor="let asignatura of asignaturas" class="col item-list">
-            <a [routerLink]="['postsListado/', asignatura.id_asignatura/post.id_post]">{{asignatura.nombre}}</a>
+            <a [routerLink]="['postsListado/', asignatura.id_asignatura]">{{asignatura.nombre}}</a>
         </div>
       </div>
 
