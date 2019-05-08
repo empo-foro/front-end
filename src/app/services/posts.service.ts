@@ -25,8 +25,18 @@ export class postsService {
     return this.http.get(url, this.header);
   }
 
+  getRespuestasById(id_post) {
+    let url = this.url + '?controller=Respuesta&operacion=comentariosPost&id_post='+id_post;
+    return this.http.get(url, this.header);
+  }
+
   getPostByUserToken(id_token){
     let url = this.url + '?controller=Post&operacion=getPostByUserToken&id_token='+id_token;
+    return this.http.get(url, this.header);
+  }
+
+  getRespuestaByUserToken(id_token) {
+    let url = this.url + '?controller=Respuesta&operacion=getUserRespuestasByToken&id_token='+id_token;
     return this.http.get(url, this.header);
   }
 }

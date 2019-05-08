@@ -92,6 +92,11 @@ export class UserService {
         return this.http.get(url, this.header);
     }
 
+    getCountEstadisticas(id_token) {
+        let url = this.url + '?controller=Usuario&operacion=getCountByToken&id_token='+id_token;
+        return this.http.get(url, this.header);
+    }
+
 
 
 }
