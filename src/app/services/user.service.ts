@@ -93,5 +93,10 @@ export class UserService {
     }
 
 
+  getIdAlumnoByToken(id_token){
+    let url = this.url + '?controller=Usuario&operacion=getAlumnoByToken&id_token='+id_token;
+    console.log(url);
+    return this.http.get(url, this.header);
 
+  }
 }

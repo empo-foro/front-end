@@ -29,4 +29,22 @@ export class postsService {
     let url = this.url + '?controller=Post&operacion=getPostByUserToken&id_token='+id_token;
     return this.http.get(url, this.header);
   }
+
+  crearPost(post){
+
+    console.log(post);
+    var data = {
+      "titulo":post.titulo,
+      "cuerpo":post.cuerpo,
+      "fecha" : post.fecha,
+      "cerrado" : post.cerrado,
+      "id_alumno":post.id_alumno,
+      "id_asignatura":post.id_asignatura
+    };
+
+    let url = this.url + "?controller=Post";
+
+    return this.http.post( url, post, this.header );
+  }
+
 }

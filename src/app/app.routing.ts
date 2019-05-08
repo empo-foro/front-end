@@ -9,6 +9,7 @@ import {VistaPostComponent} from './vista-post/vista-post.component';
 import {mainPage} from './mainPage/mainPage.component';
 import {ControlPanelComponent} from './control-panel/control-panel.component';
 import {RegistroComponent} from './perfilUsuario/registroUsuario.component';
+import {CrearPostComponent} from './crear-post/crear-post.component';
 
 /* Rutas */
 const appRoutes: Routes = [
@@ -19,7 +20,7 @@ const appRoutes: Routes = [
     {path: 'postsListado/:id_asignatura', component: ListadoPostComponent},
     {path: 'post/:id_post', component: VistaPostComponent},
     {path: 'user-profile', component: RegistroComponent},
-
+    {path: 'crear-post/:id_asignatura', component: CrearPostComponent}
 ];
 
 export const appRoutingProviders: any[] = [];

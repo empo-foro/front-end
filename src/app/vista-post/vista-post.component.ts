@@ -13,7 +13,7 @@ export class VistaPostComponent implements OnInit {
   id="";
   titulo=" ";
   cuerpo=" ";
-  fecha=" ";
+  fecha;
   cerrado=" ";
   id_alumno=" ";
   id_asignatura=" ";

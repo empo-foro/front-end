@@ -22,6 +22,7 @@ import {routing, appRoutingProviders} from './app.routing';
 
 /* Componente y configuración para las notificaciones */
 import {NotifierModule, NotifierOptions } from 'angular-notifier';
+import { CrearPostComponent } from './crear-post/crear-post.component';
 const notifierDefaultOptions: NotifierOptions = {
     position: {
         horizontal: {
@@ -49,7 +50,8 @@ const notifierDefaultOptions: NotifierOptions = {
         ControlPanelComponent,
         ListadoPostComponent,
         VistaPostComponent,
-        PaginaPricipalComponent
+        PaginaPricipalComponent,
+        CrearPostComponent
     ],
     imports: [
         BrowserModule,
