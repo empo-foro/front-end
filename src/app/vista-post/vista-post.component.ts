@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {postsService} from '../services/posts.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Post} from '../model/post.model';
@@ -11,14 +11,14 @@ import {forEach} from "@angular/router/src/utils/collection";
     styleUrls: ['./vista-post.component.css']
 })
 export class VistaPostComponent implements OnInit {
-    id_post = "";
-    id = "";
-    titulo = "";
-    cuerpo = "";
-    fecha;
-    cerrado = "";
-    id_alumno = "";
-    id_asignatura = "";
+  id_post="";
+  id="";
+  titulo=" ";
+  cuerpo=" ";
+  fecha;
+  cerrado=" ";
+  id_alumno=" ";
+  id_asignatura=" ";
 
     respuestas = [];
 

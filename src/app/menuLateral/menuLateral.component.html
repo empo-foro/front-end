@@ -1,6 +1,6 @@
-<header>
+<header class="container-fluid">
 
-  <div class="container-fluid">
+
 
     <div class="row sticky-top barra-superior">
 
@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="row ">
+    <div class="row " style="height: 100%; position:fixed">
 
       <div *ngIf="openHamburguer" class="barra-lateral dropdown">
         <div *ngFor="let asignatura of asignaturas" class="col item-list">
@@ -31,6 +31,5 @@
 
     </div>
 
-  </div>
 
 </header>
