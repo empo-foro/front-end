@@ -1,6 +1,6 @@
 {
-  "/front-end/*": {
-    "target": "http://localhost:80",
+  "*": {
+    "target": "http://empo.alwaysdata.net/",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

@@ -12,94 +12,92 @@ export class UserService {
     header= {headers: new HttpHeaders({'Content-Type': 'application/json'})};
     headerFiles = {headers: new HttpHeaders({'enctype': 'multipart/form-data'})};
 
-    url = '/front-end/src/php/back-end/EstructuraPHP/index2.php';
+    addUsers(data): Observable<any> {
 
-    getUsers() {
-        let url = '/EMPO/?controller=userclass';
-        return this.http.get(url, this.header );
+        let url = 'index2.php?controller=usuario&operacion=registro-usuarios';
+
+        return this.http.post(url, data, this.headerFiles);
     }
 
-    getUser(numUser: number) {
-        let url = '/EMPO/?controller=userclass&id=' + numUser;
-        return this.http.get(url, this.header );
+    addUser(data): Observable<any> {
+
+        let url = 'index2.php?controller=Usuario&operacion=registroUsuario';
+
+        return this.http.post(url, data, this.header);
     }
 
-    addUsers(data):Observable<any> {
-        let url = "?controller=usuario&operacion=registro-usuarios";
-        return this.http.post(this.url + url, data, this.headerFiles);
+    login(email, tipo, password): Observable<any> {
+
+        var data = {
+            'email': email,
+            'password': password
+        };
+
+        let url = 'index2.php?controller=' + tipo + '&operacion=logIn';
+
+        return this.http.post(url, data, this.header);
     }
 
-    addUser(data):Observable<any> {
-        let url = "?controller=Usuario&operacion=registroUsuario";
-        return this.http.post(this.url + url, data , this.header );
+    checkToken(token, tipo) {
+
+        var data = {
+            'id_token': token
+        };
+
+        let url = 'index2.php?controller=' + tipo + '&operacion=checkToken';
+
+        return this.http.post(url, data, this.header);
     }
 
-    updateUser( numUser: number , user: User ) {
-        let url = '/EMPO/?controller=userclass&id='+ numUser;
-        return this.http.put(url, user , this.header );
+    getUsuarioByToken(id_token) {
+
+        let url = 'index2.php?controller=Usuario&operacion=getUsuarioByToken&id_token=' + id_token + '';
+
+        return this.http.get(url, this.header);
     }
 
-    deleteUser( numUser: number ) {
-        let url = '/EMPO/?controller=userclass&id='+ numUser;
-        return this.http.delete(url, this.header );
+    logOut(id_token, tipo) {
+
+        let url = 'index2.php?controller=' + tipo + '&operacion=logOut&id_token=' + id_token;
+
+        return this.http.get(url, this.header);
     }
 
-    login(email, tipo, password):Observable<any> {
+    getAsignaturasUsuario(token, tipo) {
 
-      var data = {
-        "email":email,
-        "password":password
-      };
+        var data = {
+            'token': token,
+            'tipo': tipo
+        };
 
-      let url = this.url + "?controller="+tipo+"&operacion=logIn";
-      return this.http.post( url, data, this.header );
+        let url = 'index2.php?controller=';
+
+        return this.http.post(url, data, this.header);
+
     }
-
-    checkToken(token, tipo){
-      var data ={
-        "id_token" : token
-      };
-      let url = this.url + "?controller="+tipo+"&operacion=checkToken";
-      return this.http.post( url, data, this.header);
-    }
-    getUsuarioByToken(id_token){
-      let url = this.url+ "?controller=Usuario&operacion=getUsuarioByToken&id_token="+id_token+"";
-      return this.http.get( url, this.header);
-  }
-  logOut(id_token, tipo){
-    let url = this.url + "?controller="+tipo+"&operacion=logOut&id_token="+id_token;
-    return this.http.get(url, this.header);
-  }
-
-  getAsignaturasUsuario(token,tipo){
-      var data = {
-        "token":token,
-        "tipo": tipo
-      }
-      let url = this.url + "?controller=";
-      return this.http.post(url, data, this.header);
-  }
 
     eliminarUsuario(id) {
-        let url = this.url + '?controller=Usuario&id='+id;
-        console.log(url);
+
+        let url = 'index2.php?controller=Usuario&id=' + id;
+
         return this.http.delete(url, this.header);
     }
 
     getInfoUsuario(id) {
-        let url = this.url + '?controller=Usuario&id='+id;
-        console.log(url);
+
+        let url = 'index2.php?controller=Usuario&id=' + id;
+
         return this.http.get(url, this.header);
     }
 
     getCountEstadisticas(id_token) {
-        let url = this.url + '?controller=Usuario&operacion=getCountByToken&id_token='+id_token;
+        let url = 'index2.php?controller=Usuario&operacion=getCountByToken&id_token='+id_token;
         return this.http.get(url, this.header);
     }
 
 
   getIdAlumnoByToken(id_token){
-    let url = this.url + '?controller=Usuario&operacion=getAlumnoByToken&id_token='+id_token;
+    let url = 'index2.php?controller=Usuario&operacion=getAlumnoByToken&id_token='+id_token;
     console.log(url);
     return this.http.get(url, this.header);
 
