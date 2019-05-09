@@ -57,7 +57,7 @@ export class ControlPanelComponent implements OnInit {
         this.userService.addUser(data).subscribe(
             (result) => {
 
-                this.notifier.notify( 'error', 'Datos incorrectos' );
+                //this.notifier.notify( 'error', 'Datos incorrectos' );
 
             },
             (error) => {

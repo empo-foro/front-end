@@ -10,22 +10,21 @@ import { Curso } from "../model/curso.model";
 export class CursosService {
     constructor(private http: HttpClient) { }
     header= {headers: new HttpHeaders({'Content-Type': 'application/json'})};
-    url = '/front-end/src/php/back-end/EstructuraPHP/index2.php';
 
     getCurso() {
-        let url = this.url + '?controller=curso';
+        let url = 'index2.php?controller=Curso';
         return this.http.get(url, this.header );
     }
 
     getUsuariosTipoAlumno() {
-        let url = this.url + '?controller=Usuario&operacion=listarUsuarios&tipo=alumno';
+        let url = 'index2.php?controller=Usuario&operacion=listarUsuarios&tipo=alumno';
         return this.http.get(url, this.header);
     }
 
 
 
     getUsuariosTipoProfesores() {
-        let url = this.url + `controller=Usuario&tipo=profesor`;
+        let url = 'index2.phpcontroller=Usuario&tipo=profesor';
         return this.http.get(url, this.header);
     }
 }
