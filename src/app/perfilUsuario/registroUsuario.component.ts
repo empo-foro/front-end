@@ -4,6 +4,7 @@ import { User } from "../model/user.model";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {postsService} from "../services/posts.service";
 import {Post} from "../model/post.model";
+import {Respuesta} from "../model/respuesta.model";
 
 @Component({
     selector: 'registrar-usuario',
@@ -19,10 +20,25 @@ export class RegistroComponent implements OnInit{
     constructor(private userService:UserService, private postService: postsService) {}
     nombre=" ";
     biografia = " ";
+    posts = " ";
+    respuestas = " ";
     listadoposts = [];
+    listadorespuestas = [];
     ngOnInit(): void {
       let localStorageToken=localStorage.getItem("token");
       let localStorageTipo=localStorage.getItem("tipo");
+
+      this.userService.getCountEstadisticas(localStorageToken)
+          .subscribe(
+              (result)=>{
+                  this.posts = result["data"][0]["posts"];
+                  this.respuestas = result["data"][1]["respuestas"];
+                  console.log(this.posts);
+                  console.log(result);
+                  }, (error)=> {
+                  console.log(error);
+              }
+          )
 
       this.userService.getUsuarioByToken(localStorageToken)
         .subscribe(
@@ -35,6 +51,26 @@ export class RegistroComponent implements OnInit{
               console.log(error);
           }
         )
+
+        this.postService.getRespuestaByUserToken(localStorageToken)
+            .subscribe(
+                (result)=>{
+                    this.listadorespuestas=[];
+                    for(let i in result["data"]) {
+                        let id_respuesta=result["data"] [i] ["id_respuesta"];
+                        let asunto=result["data"] [i] ["asunto"];
+                        let texto=result["data"] [i] ["texto"];
+                        let fecha=result["data"] [i] ["fecha"];
+                        let id_post=result["data"] [i] ["id_post"];
+                        let id_usuario=result["data"] [i] ["id_usuario"];
+                        let id_respuesta_padre=result["data"] [i] ["id_respuesta_padre"];
+                        let respuesta:Respuesta = new Respuesta(id_respuesta, asunto, texto, fecha, id_post, id_usuario, id_respuesta_padre);
+                        this.listadorespuestas.push(respuesta)
+                    }
+                }, (error)=>{
+                    console.log(error);
+                }
+            )
 
         this.postService.getPostByUserToken(localStorageToken)
             .subscribe(

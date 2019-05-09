@@ -15,7 +15,7 @@ import {CursosComponentComponent} from './cursos-component/cursos-component.comp
 import {ListadoPostComponent} from './listado-post/listado-post.component';
 import {VistaPostComponent} from './vista-post/vista-post.component';
 import { PaginaPricipalComponent } from './pagina-pricipal/pagina-pricipal.component';
-
+import { CrearPostComponent } from './crear-post/crear-post.component';
 /* Imports para las rutas */
 import {AppRoutingModule} from './app.routing';
 import {routing, appRoutingProviders} from './app.routing';
@@ -49,7 +49,8 @@ const notifierDefaultOptions: NotifierOptions = {
         ControlPanelComponent,
         ListadoPostComponent,
         VistaPostComponent,
-        PaginaPricipalComponent
+        PaginaPricipalComponent,
+        CrearPostComponent
     ],
     imports: [
         BrowserModule,

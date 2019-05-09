@@ -1,0 +1,6 @@
+<div class="container m-3">
+   <h1>Crear post</h1>
+  <input type="text" class="form-control" placeholder="Título del post" maxlength="100" [(ngModel)]="titulo" >
+  <textarea name="cuerpo" id="cuerpo" placeholder="Cuerpo del post" class="form-control mt-2" [(ngModel)]="cuerpo" style="resize: none;" cols="100" rows="10" maxlength="400"></textarea>
+  <button class="btn btn-primary mt-2" (click)="addPost()"> Crear post </button>
+</div>
