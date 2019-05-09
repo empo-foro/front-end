@@ -54,11 +54,10 @@ export class ControlPanelComponent implements OnInit {
 
         }
 
-        console.log(data);
         this.userService.addUser(data).subscribe(
             (result) => {
 
-                console.log(result.message);
+                //this.notifier.notify( 'error', 'Datos incorrectos' );
 
             },
             (error) => {

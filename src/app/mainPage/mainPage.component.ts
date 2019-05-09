@@ -34,7 +34,7 @@ export class mainPage implements OnInit {
         let localStorageToken = localStorage.getItem('token');
         let localStorageTipo = localStorage.getItem('tipo');
 
-        if (localStorageToken != null && localStorageTipo != null) {
+        if (typeof localStorageToken == 'undefined' &&  typeof localStorageTipo == 'undefined' ) {
             this.service.checkToken(localStorageToken, localStorageTipo)
                 .subscribe(
                     (result) => {
@@ -63,7 +63,7 @@ export class mainPage implements OnInit {
         this.service.login(this.nuevoUsuario.email, this.nuevoUsuario.tipo, this.nuevoUsuario.password)
             .subscribe(
                 (result) => {
-
+                    console.log("funicona");
                     let id_token = result.data['id_token'];
                     let id_usuario = result.data['id_usuario'];
                     let biografia = result.data['biografia'];
