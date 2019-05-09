@@ -60,20 +60,18 @@ export class VistaPostComponent implements OnInit {
             .subscribe(
                 (result) => {
 
-                    let data = result["data"];
-                    data.forEach(function (element) {
-                        let id_respuesta = element["id_respuesta"];
-                        let asunto = element["asunto"];
-                        let texto = element["texto"];
-                        let fechapost = element["fecha"];
-                        let id_post = element["id_post"];
-                        let id_usuario = element["id_usuario"];
-                        let id_respuesta_padre = element["id_respuesta_padre"];
-                        let respuesta: Respuesta = new Respuesta(id_respuesta, asunto, texto, fechapost, id_post, id_usuario, id_respuesta_padre);
-                        this.respuestas.push(respuesta);
-                    });
-
-
+                  this.respuestas=[];
+                  for(let i in result["data"]){
+                    let id_respuesta = result ["data"][i]["id_respuesta"];
+                    let asunto = result ["data"][i]["asunto"];
+                    let texto = result ["data"][i]["texto"];
+                    let fecha = result ["data"][i]["fecha"];
+                    let id_post = result ["data"][i]["id_post"];
+                    let id_usuario = result["data"][i]["id_usuario"];
+                    let id_respuesta_padre = result["data"][i]["id_respuesta_padre"];
+                    let respuesta:Respuesta = new Respuesta(id_respuesta, asunto, texto, fecha, id_post, id_usuario, id_respuesta_padre);
+                    this.respuestas.push(respuesta);
+                  }
                 }, (error) => {
 
                 }
