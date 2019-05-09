@@ -22,6 +22,7 @@ export class CrearPostComponent implements OnInit {
   id_alumno="";
   localStorageToken = localStorage.getItem( "token" );
   ngOnInit() {
+
     this.service.getIdAlumnoByToken(this.localStorageToken)
       .subscribe(
         (result)=>{
@@ -31,7 +32,7 @@ export class CrearPostComponent implements OnInit {
         },(error)=>{
 
         }
-        )
+        );
     this._activRoute.params.forEach(
       (arrayParams: Params) => {
         console.dir(arrayParams);

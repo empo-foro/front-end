@@ -48,7 +48,6 @@ export class postsService {
     };
 
     let url = this.url + "?controller=Post";
-
     return this.http.post( url, post, this.header );
   }
 
