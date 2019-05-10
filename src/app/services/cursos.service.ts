@@ -11,20 +11,21 @@ export class CursosService {
     constructor(private http: HttpClient) { }
     header= {headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
+
     getCurso() {
-        let url = 'index2.php?controller=Curso';
+        let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Curso';
         return this.http.get(url, this.header );
     }
 
     getUsuariosTipoAlumno() {
-        let url = 'index2.php?controller=Usuario&operacion=listarUsuarios&tipo=alumno';
+        let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Usuario&operacion=listarUsuarios&tipo=alumno';
         return this.http.get(url, this.header);
     }
 
 
 
     getUsuariosTipoProfesores() {
-        let url = 'index2.phpcontroller=Usuario&tipo=profesor';
+        let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.phpcontroller=Usuario&tipo=profesor';
         return this.http.get(url, this.header);
     }
 }
