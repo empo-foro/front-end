@@ -1,15 +1,17 @@
-import { Injectable } from '@angular/core';
-import { HttpClient , HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { User } from '../model/user.model';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {User} from '../model/user.model';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class UserService {
-    constructor(private http: HttpClient ) { }
-    header= {headers: new HttpHeaders({'Content-Type': 'application/json'})};
+    constructor(private http: HttpClient) {
+    }
+
+    header = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
     headerFiles = {headers: new HttpHeaders({'enctype': 'multipart/form-data'})};
 
     addUsers(data): Observable<any> {
@@ -91,15 +93,15 @@ export class UserService {
     }
 
     getCountEstadisticas(id_token) {
-        let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Usuario&operacion=getCountByToken&id_token='+id_token;
+        let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Usuario&operacion=getCountByToken&id_token=' + id_token;
         return this.http.get(url, this.header);
     }
 
 
-  getIdAlumnoByToken(id_token){
-    let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Usuario&operacion=getAlumnoByToken&id_token='+id_token;
-    console.log(url);
-    return this.http.get(url, this.header);
+    getIdAlumnoByToken(id_token) {
+        let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Usuario&operacion=getAlumnoByToken&id_token=' + id_token;
+        console.log(url);
+        return this.http.get(url, this.header);
 
-  }
+    }
 }

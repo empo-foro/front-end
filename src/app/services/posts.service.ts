@@ -14,7 +14,7 @@ export class postsService {
   headerFiles = {headers: new HttpHeaders({'enctype': 'multipart/form-data'})};
 
   getListadoPosts(id_asignatura){
-    let url = "http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=post&operacion=asignaturaPost&id="+id_asignatura;
+    let url = "http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Post&operacion=asignaturaPost&id="+id_asignatura;
     return this.http.get(url, this.header);
   }
 
