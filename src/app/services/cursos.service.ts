@@ -21,10 +21,14 @@ export class CursosService {
         return this.http.get(url, this.header);
     }
 
+    getAsignaturasUserByToken(id_token) {
+        let url = 'index2.php?controller=Asignatura&operacion=getUserAsignaturaByToken&id_token='+id_token;
+        return this.http.get(url, this.header);
+    }
 
 
     getUsuariosTipoProfesores() {
-        let url = 'index2.phpcontroller=Usuario&tipo=profesor';
+        let url = 'index2.php?controller=Usuario&tipo=profesor';
         return this.http.get(url, this.header);
     }
 }

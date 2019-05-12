@@ -33,7 +33,7 @@ export class UserService {
             'password': password
         };
 
-        let url = 'index2.php?controller=' + tipo + '&operacion=logIn';
+        let url = '/front-end/src/php/back-end/EstructuraPHP/index2.php?controller=' + tipo + '&operacion=logIn';
 
         return this.http.post(url, data, this.header);
     }

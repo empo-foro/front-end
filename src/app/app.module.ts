@@ -22,6 +22,7 @@ import {routing, appRoutingProviders} from './app.routing';
 
 /* Componente y configuración para las notificaciones */
 import {NotifierModule, NotifierOptions } from 'angular-notifier';
+import { ListadoCursosComponent } from './listado-cursos/listado-cursos.component';
 const notifierDefaultOptions: NotifierOptions = {
     position: {
         horizontal: {
@@ -50,7 +51,8 @@ const notifierDefaultOptions: NotifierOptions = {
         ListadoPostComponent,
         VistaPostComponent,
         PaginaPricipalComponent,
-        CrearPostComponent
+        CrearPostComponent,
+        ListadoCursosComponent
     ],
     imports: [
         BrowserModule,
