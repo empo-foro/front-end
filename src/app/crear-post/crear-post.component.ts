@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../services/user.service';
-import {asignaturaService} from '../services/asignatura.service';
+import {AsignaturaService} from '../services/asignatura.service';
 import {postsService} from '../services/posts.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Post} from '../model/post.model';
@@ -13,7 +13,7 @@ import {NotifierService} from 'angular-notifier';
 })
 export class CrearPostComponent implements OnInit {
   private readonly notifier: NotifierService;
-  constructor(notifierService: NotifierService ,private service: UserService ,private asignaturaService: asignaturaService,private postService: postsService ,private router: Router, private _activRoute:ActivatedRoute) {
+  constructor(notifierService: NotifierService , private service: UserService , private asignaturaService: AsignaturaService, private postService: postsService , private router: Router, private _activRoute:ActivatedRoute) {
     this.notifier = notifierService;;
   }
   titulo;

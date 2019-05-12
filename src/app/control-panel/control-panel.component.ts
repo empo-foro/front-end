@@ -1,13 +1,21 @@
+/* Componentes importados */
 import {Component, OnInit} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Router} from '@angular/router';
+import {Subject} from 'rxjs';
+
+/* Servicios importados */
 import {CursosService} from '../services/cursos.service';
 import {UserService} from '../services/user.service';
-import {User} from '../model/user.model';
-import {Curso} from '../model/curso.model';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {logger} from 'codelyzer/util/logger';
-import {Router} from '@angular/router';
-import * as jQuery from 'jquery';
+import {AsignaturaService} from '../services/asignatura.service';
 
+/* Modelos importados */
+import {Curso} from '../model/curso.model';
+import {User} from '../model/user.model';
+import {Asignatura} from '../model/asignatura.model';
+
+/* Componente de las alertas */
+import {NotifierService} from 'angular-notifier';
 
 @Component({
     selector: 'control-panel',
@@ -18,68 +26,53 @@ import * as jQuery from 'jquery';
 
 export class ControlPanelComponent implements OnInit {
 
-    nuevoUsuario: User = new User(null, null, null, null, null, "Alumno", null, null, null);
-    usuario: User = new User(null, null, null, null, null, null, null, null, null);
+    /** Esta variable contiene los datos del formulario de registro de usuarios */
+    nuevoUsuario: User = new User(null, null, null, null, null, 'Alumno', null, null, null);
+    /** Contiene el identificado del curso del formulario de registro masivo */
     cursoSeleccionado;
-    usuarios;
-    cursos;
-    curso;
-    nuevoCurso: Curso;
+    /** Array con los cursos que existen dentro de la base de datos */
+    cursos = Array<Curso>();
+    /** En esta variable guardaremos el curso seleccionado en el que vamos a registrar al usuario */
+    cursoUsuario = new Curso(null, null, null);
+    /** Esta variable contiene los datos del formulario de registro de curso */
+    nuevoCurso: Curso = new Curso(null, null, 1);
+    /** Esta variable contiene los datos del formulario del registro de asignatura */
+    nuevaAsignatura: Asignatura = new Asignatura(null, null, null);
 
-    constructor(private _cursoService: CursosService, private _userService: UserService, private userService: UserService, private router: Router) {
-        this.cursos = Array<Curso>();
-        this.usuarios = Array<User>();
-        this.nuevoCurso = new Curso(null, null, null);
+    /** Variables que utilizamos con el datatables */
+    dtOption: DataTables.Settings = {};
+    usuarios: User[] = [];
+    dtTrigger: Subject<User> = new Subject();
+
+    /** Variable que utilizaremos para las notificaciones */
+    private readonly notifier: NotifierService;
+
+    constructor(private http: HttpClient, private _cursoService: CursosService, private _userService: UserService, private _asignaturaService:AsignaturaService, private router: Router, notifierService: NotifierService) {
+        this.notifier = notifierService;
     }
 
-    archivos: FileList = null;
-
-    handleFileInput2(files: FileList) {
-        this.archivos = files;
-    }
-
-    addUsuario() {
-
-        var data = new Array();
-
-        if(this.nuevoUsuario.tipo === "Alumno") {
-
-            data.push(this.nuevoUsuario);
-            let aux = {"id_curso":this.curso};
-            data.push(aux);
-
-        } else {
-
-            data.push(this.nuevoUsuario);
-
-        }
-
-        this.userService.addUser(data).subscribe(
-            (result) => {
-
-                //this.notifier.notify( 'error', 'Datos incorrectos' );
-
-            },
-            (error) => {
-                console.log(error);
-            }
-        );
-
-    }
-
-    eliminarUsuario(id) {
-        this.userService.eliminarUsuario(id).subscribe(
-            (result) => {
-                console.log(result['message']);
-            },
-
-            (error) => {
-                console.log(error);
-            }
-        );
+    /**
+     * Función que inicializara el datatables
+     */
+    datatables() {
+        this.dtOption = {
+            pagingType: 'full_numbers',
+            pageLength: 10
+        };
+        this.http.get('http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Usuario&operacion=listarUsuarios&tipo=alumno', {headers: new HttpHeaders({'Content-Type': 'application/json'})})
+            .subscribe(result => {
+                let users = result['data'];
+                users.map(object => {
+                    let alumno: User = new User(object['id_usuario'], object['nif'], object['nombre'], object['password'], object['imagen_personal'], object['tipo'], object['email'], object['biografia'], object['id_token']);
+                    this.usuarios.push(alumno);
+                });
+                this.dtTrigger.next();
+            });
     }
 
     ngOnInit(): void {
+
+        this.datatables();
 
         /* Consulta que nos devuelve todos los cursos de la base de datos */
         this._cursoService.getCurso()
@@ -91,94 +84,119 @@ export class ControlPanelComponent implements OnInit {
                 }
             );
 
-        /* Consulta con la que recibiremos todos los usuarios que sea de tipo Alumno */
-        this._cursoService.getUsuariosTipoAlumno()
-            .subscribe(
-                (result) => {
-                    for (let i in result['data']) {
-
-                        let id_usuario = result['data'][i]['id_usuario'];
-                        let nif = result['data'][i]['nif'];
-                        let nombre = result['data'][i]['nombre'];
-                        let password = result['data'][i]['password'];
-                        let imagen_personal = result['data'][i]['imagen_personal'];
-                        let tipo = result['data'][i]['tipo'];
-                        let email = result['data'][i]['email'];
-                        let biografia = result['data'][i]['biografia'];
-                        let id_token = result['data'][i]['id_token'];
-
-                        let usuario: User = new User(id_usuario, nif, nombre, password, imagen_personal, tipo, email, biografia, id_token);
-
-                        this.usuarios.push(usuario);
-
-                    }
-
-
-                }, (error) => {
-                    console.log(error);
-                }
-            );
-
         /* Recogemos los datos del local storage para comprobar si ha iniciado sesión con anterioridad */
         if (localStorage != null) {
-
             let localStorageToken = localStorage.getItem('token');
             let localStorageTipo = localStorage.getItem('tipo');
-
-            this.userService.checkToken(localStorageToken, localStorageTipo)
+            this._userService.checkToken(localStorageToken, localStorageTipo)
                 .subscribe(
-                    (result) => {
+                    () => {
                         this.router.navigate(['control-panel']);
-                    }, (error) => {
+                    }, () => {
                         this.router.navigate(['']);
                         console.log('Error al iniciar sesión');
                     });
-
         } else {
             console.log('Error al iniciar sesión');
         }
 
-        $('#listaAlumnos').DataTable();
-
     }
 
-    filesToUpload: FileList = null;
+    /**
+     * Función que ejecutamos al registrar un usuario
+     */
+    addUsuario() {
+        let data = [];
+        if (this.nuevoUsuario.tipo === 'Alumno') {
+            data.push(this.nuevoUsuario);
+            let aux = {'id_curso': this.cursoUsuario};
+            data.push(aux);
+        } else {
+            data.push(this.nuevoUsuario);
+        }
+        this._userService.addUser(data).subscribe(
+            (result) => {
+                this.notifier.notify('success', 'Usuario creado correctamente');
+                let object = result['data'];
+                if (object['tipo'] === 'Alumno') {
+                    let alumno: User = new User(object['id_usuario'], object['nif'], object['nombre'], object['password'], object['imagen_personal'], object['tipo'], object['email'], object['biografia'], object['id_token']);
+                    this.usuarios.push(alumno);
+                }
+            },
+            () => {
+                this.notifier.notify('error', 'Ha ocurrido un error al crear usuario');
+            }
+        );
+    }
 
+    /**
+     * Función que ejecutamos cuando clicamos en el icono de borrar usuario
+     * @param id Número identificador del usuario
+     */
+    eliminarUsuario(id) {
+        this._userService.eliminarUsuario(id).subscribe(
+            () => {
+                this.notifier.notify('success', 'Usuario eliminado correctamente');
+                let index = this.usuarios.findIndex(user => user.id_usuario === id);
+                this.usuarios.splice(index, 1);
+            },
+            () => {
+                this.notifier.notify('error', 'Ha ocurrido un error al eliminar usuario');
+            }
+        );
+    }
+
+    /** Variable donde guardaremos el fichero que suba el usuario */
+    filesToUpload: FileList = null;
+    /**
+     * Esta función que asigna el fichero seleccionado en la vista a la variable filesToUpload
+     * @param files FileList Ficheros subidos por el usuario en el formulario
+     */
     handleFileInput(files: FileList) {
         this.filesToUpload = files;
     }
 
+    /**
+     * Función que enviará los datos para realizar una creación masiva de usuarios
+     */
     uploadCSV() {
-
-        var data = {
-            'fichero': this.filesToUpload[0],
-            'id_curso': this.cursoSeleccionado,
-            'tipo': 'Alumno'
-        };
-
-        var formData = new FormData();
+        let formData = new FormData();
         formData.append('fichero', this.filesToUpload[0]);
         formData.append('id_curso', this.cursoSeleccionado);
         formData.append('tipo', 'Alumno');
-
-
         this._userService.addUsers(formData).subscribe(
-            (result) => {
+            () => {
+                this.notifier.notify('success', 'Usuarios creados correctamente');
             },
-            (error) => {
-
+            () => {
+                this.notifier.notify('error', 'Ha ocurrido un error al crear usuarios');
             }
         );
-
     }
 
-    addUser() {
-        const formData: FormData = new FormData();
-
-        for (let i = 0; i < this.filesToUpload.length; i++) {
-            formData.append(i.toString(), this.filesToUpload[i], this.filesToUpload[i].name);
-        }
-        formData.append('data', JSON.stringify(this.cursos));
-
+    registrarCurso() {
+        this._cursoService.crearCurso(this.nuevoCurso).subscribe(
+            (result) => {
+                this.notifier.notify('success', 'Curso creado correctamente');
+                let object = result["data"];
+                let curso = new Curso(object["id_curso"], object["nombre"], 1);
+                this.cursos.push(curso);
+            },
+            () => {
+                this.notifier.notify('error', 'Ha ocurrido un error al crear curso');
+            }
+        )
     }
+
+    registrarAsignatura() {
+        this._asignaturaService.create(this.nuevaAsignatura).subscribe(
+            () => {
+                this.notifier.notify('success', 'Asignatura creada correctamente');
+            },
+            () => {
+                this.notifier.notify('error', 'Ha ocurrido un error al crear asignatura');
+            }
+        );
+    }
+
 }

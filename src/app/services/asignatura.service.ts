@@ -7,7 +7,7 @@ import {User} from '../model/user.model';
     providedIn: 'root'
 })
 
-export class asignaturaService {
+export class AsignaturaService {
     constructor(private http: HttpClient) {
     }
 
@@ -18,6 +18,11 @@ export class asignaturaService {
     getAsignaturas() {
         let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=asignatura';
         return this.http.get(url, this.header);
+    }
+
+    create(asignatura) {
+        let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Asignatura';
+        return this.http.post(url, asignatura, this.header);
     }
 
     getAsignaturasUsuario(token, tipo) {
