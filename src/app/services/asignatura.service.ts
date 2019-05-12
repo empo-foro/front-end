@@ -16,7 +16,7 @@ export class asignaturaService {
 
 
     getAsignaturas() {
-        let url = 'index2.php?controller=asignatura';
+        let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=asignatura';
         return this.http.get(url, this.header);
     }
 
@@ -25,7 +25,7 @@ export class asignaturaService {
             'id_token': token,
             'tipo': tipo
         };
-        let url = 'index2.php?controller=' + tipo + '&operacion=getAsignaturas';
+        let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=' + tipo + '&operacion=getAsignaturas';
         return this.http.post(url, data, this.header);
     }
 
