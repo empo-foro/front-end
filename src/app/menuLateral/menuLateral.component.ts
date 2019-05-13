@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 /* Modelos */
 import {User} from '../model/user.model';
 import {Asignatura} from '../model/asignatura.model';
-import {asignaturaService} from '../services/asignatura.service';
+import {AsignaturaService} from '../services/asignatura.service';
 import {postsService} from '../services/posts.service';
 
 import * as $ from 'jquery';
@@ -21,7 +21,7 @@ export class menuLateral implements OnInit {
   logged;
   asignaturas = [];
 
-  constructor(private service: UserService ,private asignaturaService: asignaturaService,private postService: postsService ,private router: Router) { }
+  constructor(private service: UserService , private asignaturaService: AsignaturaService, private postService: postsService , private router: Router) { }
 
     ngOnInit():void{
 

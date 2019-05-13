@@ -5,3 +5,7 @@ html, body, main {
     font-size: 0.9em;
     font-family: 'Roboto', sans-serif !important;
 }
+
+.dataTables_empty {
+    display: none;
+}

@@ -13,24 +13,23 @@ export class postsService {
   header = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
   headerFiles = {headers: new HttpHeaders({'enctype': 'multipart/form-data'})};
 
-
   getListadoPosts(id_asignatura){
-    let url = "index2.php?controller=post&operacion=asignaturaPost&id="+id_asignatura;
+    let url = "http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Post&operacion=asignaturaPost&id="+id_asignatura;
     return this.http.get(url, this.header);
   }
 
   getPostById(id_post){
-    let url = "index2.php?controller=Post&id="+id_post;
+    let url = "http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Post&id="+id_post;
     return this.http.get(url, this.header);
   }
 
   getRespuestasById(id_post) {
-    let url = 'index2.php?controller=Respuesta&operacion=comentariosPost&id_post='+id_post;
+    let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Respuesta&operacion=comentariosPost&id_post='+id_post;
     return this.http.get(url, this.header);
   }
 
   getPostByUserToken(id_token){
-    let url = 'index2.php?controller=Post&operacion=getPostByUserToken&id_token='+id_token;
+    let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Post&operacion=getPostByUserToken&id_token='+id_token;
     return this.http.get(url, this.header);
   }
 
@@ -46,13 +45,13 @@ export class postsService {
       "id_asignatura":post.id_asignatura
     };
 
-    let url = "index2.php?controller=Post";
+    let url = "http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Post";
     return this.http.post( url, post, this.header );
   }
 
 
   getRespuestaByUserToken(id_token) {
-    let url = 'index2.php?controller=Respuesta&operacion=getUserRespuestasByToken&id_token='+id_token;
+    let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Respuesta&operacion=getUserRespuestasByToken&id_token='+id_token;
     return this.http.get(url, this.header);
   }
 }
