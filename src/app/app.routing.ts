@@ -20,7 +20,9 @@ const appRoutes: Routes = [
     {path: 'postsListado/:id_asignatura', component: ListadoPostComponent},
     {path: 'post/:id_post', component: VistaPostComponent},
     {path: 'user-profile', component: RegistroComponent},
-    {path: 'crear-post/:id_asignatura', component: CrearPostComponent}
+    {path: 'crear-post/:id_asignatura', component: CrearPostComponent},
+    { path: '',   redirectTo: '/user-profile', pathMatch: 'full' },
+    { path: '**', component: RegistroComponent }
 ];
 
 export const appRoutingProviders: any[] = [];
