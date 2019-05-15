@@ -14,7 +14,7 @@ import {NotifierService} from 'angular-notifier';
 export class CrearPostComponent implements OnInit {
   private readonly notifier: NotifierService;
   constructor(notifierService: NotifierService , private service: UserService , private asignaturaService: AsignaturaService, private postService: postsService , private router: Router, private _activRoute:ActivatedRoute) {
-    this.notifier = notifierService;;
+    this.notifier = notifierService;
   }
   titulo;
   cuerpo;

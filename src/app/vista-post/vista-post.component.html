@@ -17,6 +17,13 @@
         {{respuesta.texto}}
       <hr>
     </div>
+  <hr>
+  <div class="mt-3 p-4 w-100 h-50">
+    <h3>Responde al post</h3>
+    <input type="text" id="asunto" class="form-control " placeholder="Asunto" [(ngModel)]="asuntoRespuesta">
+    <textarea class="form-control mt-1" id="" cols="3" rows="5" placeholder="Cuerpo" [(ngModel)]="cuerpoRespuesta"></textarea>
+    <button class="btn btn-primary mt-1" (click)="addRespuesta()">Responder</button>
+  </div>
 
 </div>
 

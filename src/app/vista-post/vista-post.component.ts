@@ -4,6 +4,8 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Post} from '../model/post.model';
 import {Respuesta} from "../model/respuesta.model";
 import {forEach} from "@angular/router/src/utils/collection";
+import {UserService} from '../services/user.service';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
     selector: 'app-vista-post',
@@ -19,12 +21,13 @@ export class VistaPostComponent implements OnInit {
   cerrado=" ";
   id_alumno=" ";
   id_asignatura=" ";
-
-    respuestas = [];
-
-
-    constructor(private postService: postsService, private _router: Router, private _activRoute: ActivatedRoute) {
-    }
+  respuestas = [];
+  id_usuario="";
+  private readonly notifier: NotifierService;
+   localStorageToken = localStorage.getItem("token")
+    constructor(notifierService: NotifierService, private userService:UserService, private postService: postsService, private _router: Router, private _activRoute: ActivatedRoute) {
+      this.notifier = notifierService;
+   }
 
     ngOnInit() {
 
@@ -68,8 +71,7 @@ export class VistaPostComponent implements OnInit {
                     let fecha = result ["data"][i]["fecha"];
                     let id_post = result ["data"][i]["id_post"];
                     let id_usuario = result["data"][i]["id_usuario"];
-                    let id_respuesta_padre = result["data"][i]["id_respuesta_padre"];
-                    let respuesta:Respuesta = new Respuesta(id_respuesta, asunto, texto, fecha, id_post, id_usuario, id_respuesta_padre);
+                    let respuesta:Respuesta = new Respuesta(id_respuesta, asunto, texto, fecha, id_post, id_usuario);
                     this.respuestas.push(respuesta);
                   }
                 }, (error) => {
@@ -77,6 +79,40 @@ export class VistaPostComponent implements OnInit {
                 }
             );
 
+
+      this.userService.getUsuarioByToken(this.localStorageToken)
+        .subscribe(
+          (result)=>{
+            this.id_usuario = result["data"]["0"]["id_usuario"]
+          },(error)=>{
+
+          }
+        )
+    }
+    asuntoRespuesta;
+    cuerpoRespuesta;
+
+    addRespuesta(){
+
+      var todayTime = new Date();
+      var month = todayTime .getMonth() + 1;
+      var day = todayTime .getDate();
+      var year = todayTime .getFullYear();
+      var fecha_respuesta =  year + "/" + month + "/" + day;
+
+      let respuesta = new Respuesta(null, this.asuntoRespuesta, this.cuerpoRespuesta, fecha_respuesta ,this.id_post,this.id_usuario);
+      this.postService.crearRespuesta(respuesta)
+        .subscribe(
+      (result)=>{
+            this.respuestas.push(respuesta);
+    },(error)=>{
+
+            this.notifier.notify( 'error', 'Error al responder al post' );
+    }
+  )
     }
 
 }
+/*
+*
+    */

@@ -54,4 +54,11 @@ export class postsService {
     let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Respuesta&operacion=getUserRespuestasByToken&id_token='+id_token;
     return this.http.get(url, this.header);
   }
+  crearRespuesta(respuesta) {
+
+
+
+    let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Respuesta';
+    return this.http.post( url, respuesta, this.header );
+  }
 }
