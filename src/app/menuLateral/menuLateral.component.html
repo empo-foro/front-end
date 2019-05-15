@@ -24,8 +24,10 @@
     <div class="row " style="height: 100%">
 
       <div *ngIf="openHamburguer" class="barra-lateral dropdown">
+
         <div *ngFor="let asignatura of asignaturas" class="col item-list">
             <a [routerLink]="['postsListado/', asignatura.id_asignatura]">{{asignatura.nombre}}</a>
+          <hr>
         </div>
       </div>
 

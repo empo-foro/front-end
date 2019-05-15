@@ -2,11 +2,11 @@ export class Post {
   id_post:string = "";
   titulo:string = "";
   cuerpo:string = "";
-  fecha:Date;
+  fecha:string;
   cerrado:string="";
   id_alumno:string="";
   id_asignatura:string="";
-  constructor (id_post:string, titulo:string, cuerpo:string, fecha:Date, cerrado:string, id_alumno:string, id_asignatura:string) {
+  constructor (id_post:string, titulo:string, cuerpo:string, fecha:string, cerrado:string, id_alumno:string, id_asignatura:string) {
     this.id_post=id_post;
     this.titulo = titulo;
     this.cuerpo=cuerpo;

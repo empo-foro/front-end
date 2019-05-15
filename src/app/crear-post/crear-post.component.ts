@@ -21,14 +21,13 @@ export class CrearPostComponent implements OnInit {
   id_asignatura="";
   id_alumno="";
   localStorageToken = localStorage.getItem( "token" );
-  ngOnInit() {
 
+  ngOnInit() {
     this.service.getIdAlumnoByToken(this.localStorageToken)
       .subscribe(
         (result)=>{
           console.log(result);
           this.id_alumno = result["data"][0]["id_alumno"];
-
         },(error)=>{
 
         }
@@ -44,13 +43,19 @@ export class CrearPostComponent implements OnInit {
 
     addPost(){
 
-    let fecha = new Date();
+        var todayTime = new Date();
+        var month = todayTime .getMonth() + 1;
+        var day = todayTime .getDate();
+        var year = todayTime .getFullYear();
+        var fecha =  year + "/" + month + "/" + day;
+
     let data = new Post(null, this.titulo, this.cuerpo, fecha ,"0",this.id_alumno,this.id_asignatura );
 
     this.postService.crearPost(data)
       .subscribe(
         (result)=>{
-          this.router.navigate(['postsListado/', this.id_asignatura])
+          this.router.navigate(
+            ['postsListado/', this.id_asignatura])
         },(error)=>{
           this.notifier.notify( 'error', 'Error al crear el post' );
         }
