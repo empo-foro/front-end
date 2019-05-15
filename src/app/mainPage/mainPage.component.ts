@@ -82,7 +82,7 @@ export class mainPage implements OnInit {
                     if(this.nuevoUsuario.tipo === "Centro") {
                         this.router.navigate(['control-panel']);
                     } else if (this.nuevoUsuario.tipo === "Usuario") {
-                        this.router.navigate(['home']);
+                        this.router.navigate(['listado-cursos']);
                     } else {
                     }
 

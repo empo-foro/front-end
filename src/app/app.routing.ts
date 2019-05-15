@@ -10,6 +10,7 @@ import {mainPage} from './mainPage/mainPage.component';
 import {ControlPanelComponent} from './control-panel/control-panel.component';
 import {RegistroComponent} from './perfilUsuario/registroUsuario.component';
 import {CrearPostComponent} from './crear-post/crear-post.component';
+import {ListadoCursosComponent} from "./listado-cursos/listado-cursos.component";
 
 /* Rutas */
 const appRoutes: Routes = [
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
     {path: 'post/:id_post', component: VistaPostComponent},
     {path: 'user-profile', component: RegistroComponent},
     {path: 'crear-post/:id_asignatura', component: CrearPostComponent},
+    {path: 'listado-cursos', component: ListadoCursosComponent},
     { path: '',   redirectTo: '/user-profile', pathMatch: 'full' },
     { path: '**', component: RegistroComponent }
 ];

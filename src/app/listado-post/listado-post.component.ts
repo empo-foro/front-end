@@ -6,6 +6,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import {Asignatura} from '../model/asignatura.model';
 import {Post} from '../model/post.model';
 import {UserService} from '../services/user.service';
+import {AsignaturaService} from "../services/asignatura.service";
 
 @Component({
   selector: 'app-listado-post',
