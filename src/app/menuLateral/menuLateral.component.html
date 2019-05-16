@@ -12,8 +12,7 @@
         <button (click)="logOut()" class="btn float-right"> <i class="icon-bar fas fa-sign-out-alt"></i> </button>
         <button *ngIf = "botones" class="btn float-right " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="icon-bar fas fa-user"></i> </button>
         <!--[routerLink]="['//user-profile/']"-->
-        <div class="dropdown-menu" >
-          <span class="dropdown-item-text" style="color:black;">Opciones de usuario</span>
+        <div class="dropdown-menu">
             <a class="dropdown-item" style="color:black;" [routerLink]="['/listado-cursos']">Menú Principal</a>
             <a class="dropdown-item" style="color:black;" [routerLink]="['//user-profile/']">Perfil</a>
             <!--<a class="dropdown-item" style="color:black;" href="#">Editar perfil</a>-->
