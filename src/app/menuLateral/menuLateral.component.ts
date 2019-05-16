@@ -20,7 +20,7 @@ export class menuLateral implements OnInit {
   openHamburguer=false;
   logged;
   asignaturas = [];
-
+  botones = true;
   constructor(private service: UserService , private asignaturaService: AsignaturaService, private postService: postsService , private router: Router) { }
 
     ngOnInit():void{
@@ -29,9 +29,15 @@ export class menuLateral implements OnInit {
     let localStorageTipo = localStorage.getItem( "tipo" );
 
     this.mostrarAsignaturas();
-
+    this.ocultarBotones()
   }
 
+ocultarBotones(){
+  let localStorageTipo = localStorage.getItem( "tipo" );
+  if(localStorageTipo=="Centro"){
+  this.botones=false;
+  }
+}
   /*CLICK PARA ABRIR MENU LATERAL*/
     clickOpenHamburguer(){
         this.openHamburguer=!this.openHamburguer;
