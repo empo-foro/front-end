@@ -63,8 +63,7 @@ export class RegistroComponent implements OnInit{
                         let fecha=result["data"] [i] ["fecha"];
                         let id_post=result["data"] [i] ["id_post"];
                         let id_usuario=result["data"] [i] ["id_usuario"];
-                        let id_respuesta_padre=result["data"] [i] ["id_respuesta_padre"];
-                        let respuesta:Respuesta = new Respuesta(id_respuesta, asunto, texto, fecha, id_post, id_usuario, id_respuesta_padre);
+                        let respuesta:Respuesta = new Respuesta(id_respuesta, asunto, texto, fecha, id_post, id_usuario);
                         this.listadorespuestas.push(respuesta)
                     }
                 }, (error)=>{
