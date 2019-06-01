@@ -1,3 +1,11 @@
-<p>
-  listado-cursos works!
-</p>
+<div class="container">
+  <div class="row h-100">
+    <div class="col-md-6 mt-4" *ngFor="let asignatura of arrayAsignaturas">
+      <div [routerLink]="['//postsListado/', asignatura.id_asignatura]" class="btn btn-outline-info border w-100" >
+        <div>
+          <h3>{{asignatura.nombre}}</h3>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>

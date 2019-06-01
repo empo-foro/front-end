@@ -20,6 +20,11 @@ export class AsignaturaService {
         return this.http.get(url, this.header);
     }
 
+    getAsignaturaUserByToken(id_token) {
+        let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Asignatura&operacion=getUserAsignaturaByToken&id_token='+id_token;
+        return this.http.get(url, this.header);
+    }
+
     create(asignatura) {
         let url = 'http://empo.alwaysdata.net/back-end/EstructuraPHP/index2.php?controller=Asignatura';
         return this.http.post(url, asignatura, this.header);
